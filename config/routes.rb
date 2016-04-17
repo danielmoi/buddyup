@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'buddyup#'
+  root 'home#index'
+  resources :users, :goals
 end
