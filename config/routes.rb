@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'pages/home'
 
-  root :to => 'pages#home'
+  root 'pages#home'
+
+  resources :users, :goals
 
 end
