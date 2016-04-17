@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -37,6 +36,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'mailboxer', github: 'mailboxer/mailboxer'
 end
 
 group :development do
