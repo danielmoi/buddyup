@@ -1,13 +1,19 @@
 .btn {
   font-size: 1em;
   border-radius: 10px;
+
   padding: 10px;
   cursor: pointer;
   border: 1px solid $primary;
-  color: #fff;
+  color: $primary;
   background: #fff;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  // box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
 }
 .btn:hover {
   text-decoration: none;
+}
+
+.btn-container {
+  margin: 2em 0;
+  text-align: center;
 }

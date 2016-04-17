@@ -1,0 +1,33 @@
+.form {
+  max-width: 80%;
+  margin: 2em auto;
+  padding: 2em;
+  // border: 1px solid $primary;
+  border-radius: 1em;
+}
+
+fieldset {
+  border: none;
+  padding: 10px 0;
+}
+.field_with_errors {
+  display: inline;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  border-bottom: 1px solid $primary;
+}
+
+.textarea {
+  height: 100px;
+}
+.label {
+  display: block;
+  margin-bottom: 5px;
+}

@@ -72,12 +72,16 @@ img {
 }
 
 // for mobile iOS
-input[type="button"], input[type="submit"], input[type="url"], button, textarea {
+input[type="button"],
+input[type="submit"],
+input[type="url"],
+button,
+textarea {
   -webkit-appearance: none; /*Safari/Chrome*/
  -moz-appearance: none; /*Firefox*/
  -ms-appearance: none; /*IE*/
  -o-appearance: none; /*Opera*/
  appearance: none;
 
- -webkit-border-radius: 0;
+ // -webkit-border-radius: 0;
 }
