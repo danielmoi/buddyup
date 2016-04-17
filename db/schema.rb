@@ -11,55 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415035551) do
+ActiveRecord::Schema.define(version: 20160417054339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string  "title"
-    t.integer "goal_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "charities", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "bank_name"
-    t.integer  "bank_bsb"
-    t.integer  "bank_acc"
-    t.integer  "order_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "categories_goals", id: false, force: :cascade do |t|
+    t.integer "goal_id"
+    t.integer "category_id"
   end
+
+  add_index "categories_goals", ["category_id"], name: "index_categories_goals_on_category_id", using: :btree
+  add_index "categories_goals", ["goal_id"], name: "index_categories_goals_on_goal_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.boolean  "achieved",     default: false
-    t.integer  "order_id"
-    t.integer  "initiator_id"
     t.integer  "acceptor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "initiator_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "amount"
-    t.boolean  "user_paid"
-    t.boolean  "user_refunded"
-    t.boolean  "vault_paid"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "user_paid",     default: false
+    t.boolean  "user_refunded", default: false
+    t.boolean  "vault_paid",    default: false
+    t.integer  "goal_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
+
+  add_index "orders", ["goal_id"], name: "index_orders_on_goal_id", using: :btree
 
   create_table "subgoals", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.boolean  "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "completed",   default: false
+    t.integer  "goal_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
+  add_index "subgoals", ["goal_id"], name: "index_subgoals_on_goal_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.text     "name"
@@ -70,8 +72,8 @@ ActiveRecord::Schema.define(version: 20160415035551) do
     t.string   "country"
     t.string   "city"
     t.boolean  "admin",           default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

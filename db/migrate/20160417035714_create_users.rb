@@ -9,8 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :country
       t.string :city
       t.boolean :admin, default: false
-
-      t.timestamps
+      
+      t.timestamps null: false
     end
   end
 end
