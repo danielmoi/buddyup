@@ -18,6 +18,9 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find params[:id]
+    @categories = @categories.id
+    raise
+    @goal = Goal.all
   end
 
   private

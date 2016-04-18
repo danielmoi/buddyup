@@ -1,2 +1,11 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+
+<%= @category.title %>
+<h2>Choose a Goal</h2>
+
+<% if @categories.id === 1 %>
+<%= @goal.title %>
+<% end %>
+<div class="btn-container">
+  <%= link_to 'Choose Goal', new_category_message_path(@category), :class => 'btn' %>
+</div>

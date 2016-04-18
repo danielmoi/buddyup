@@ -14,7 +14,9 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new goal_params
     if @goal.save
+      @category_ids = params[:category_ids]
       @amount = params[:amount]
+      raise
       redirect_to new_goal_order_path(@goal)
     else
       render 'new'
@@ -23,12 +25,11 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
-
     @messages = @goal.messages
   end
 
   private
   def goal_params
-    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id, :amount)
+    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id, :amount, :category_ids)
   end
 end
