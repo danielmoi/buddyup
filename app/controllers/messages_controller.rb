@@ -10,8 +10,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    @goal = Goal.find params[:goal_id]
+    @message = Message.new message_params
+    if @message.save
+      redirect_to 'goal'
+    else
+      render new_goal_message_path
+    end
   end
 
   def edit
