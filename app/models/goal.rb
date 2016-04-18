@@ -19,15 +19,5 @@ class Goal < ActiveRecord::Base
   has_many :subgoals
   has_many :orders
 
-  # Mailboxer
-  acts_as_messageable
 
-  def name
-    @current_user.name
-  end
-
-  def mailboxer_email
-    @current_user.email
-  end
-  
 end
