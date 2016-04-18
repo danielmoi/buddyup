@@ -7,8 +7,24 @@ class GoalsController < ApplicationController
   end
 
   def new
+    @goal = Goal.new
+    @categories = Category.all
+  end
+
+  def create
+    @goal = Goal.new goal_params
+    if @goal.save
+      redirect_to user_path(@current_user.id)
+    else
+      render 'new'
+    end
   end
 
   def show
+  end
+
+  private
+  def goal_params
+    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id)
   end
 end

@@ -33,7 +33,7 @@
           <li class="nav-list__item"><%= link_to "Logout #{@current_user.email}", login_path, :method => :delete %></li>
 
           <li class="nav-list__item">
-            <%= link_to "Edit Profile", edit_user_path(@current_user) %></li>
+            <%= link_to "Edit Profile", users_edit_path(@current_user) %></li>
 
           <!--  User is not logged in -->
         <% else %>

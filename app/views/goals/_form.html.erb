@@ -1,0 +1,27 @@
+<%= form_for @goal do |f| %>
+
+  <fieldset>
+    <%= f.label :title, :class => 'label' %>
+    <%= f.text_field :title, :class => 'input' %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :description, :class => 'label' %>
+    <%= f.text_field :description, :class => 'input' %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :category_id, :class => 'label' %>
+
+    <%= f.collection_check_boxes :category_ids, @categories, :id, :title do |c| %>
+      <%= c.check_box( :class => 'checkbox' ) %>
+      <%= c.label %>
+    <% end %>
+
+  </fieldset>
+
+  <div class="btn-container">
+    <%= f.submit "Create Goal", :class => 'btn' %>
+  </div>
+
+<% end %>

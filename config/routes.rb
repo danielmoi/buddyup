@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :goals, :subgoals, :orders, :categories
 
-  resources :users, :only => [:new, :create, :index, :update, :edit]
+  get '/users/edit' => 'users#edit'
+
+  resources :users, :only => [:new, :create, :index, :update, :show]
+
 
   resources :conversations, only: [:index, :show, :new, :create] do
     resources :messages do
