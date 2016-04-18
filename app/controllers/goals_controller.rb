@@ -14,7 +14,8 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new goal_params
     if @goal.save
-      redirect_to user_path(@current_user.id)
+      @amount = params[:amount]
+      redirect_to new_goal_order_path(@goal)
     else
       render 'new'
     end
@@ -25,6 +26,6 @@ class GoalsController < ApplicationController
 
   private
   def goal_params
-    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id)
+    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id, :amount)
   end
 end

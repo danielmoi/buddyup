@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :goals, :subgoals, :orders, :categories
+  resources :subgoals, :categories
+
+  resources :goals do
+    resources :orders do
+    end
+  end
 
   get '/users/edit' => 'users#edit'
 

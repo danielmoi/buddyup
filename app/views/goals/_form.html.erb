@@ -20,6 +20,11 @@
 
   </fieldset>
 
+  <fieldset>
+    <%= f.label :amount, :class => 'label' %>
+    <%= f.number_field :amount, :class => 'input' %>
+  </fieldset>
+
   <div class="btn-container">
     <%= f.submit "Create Goal", :class => 'btn' %>
   </div>

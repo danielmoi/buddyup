@@ -19,5 +19,4 @@ class Goal < ActiveRecord::Base
   has_many :subgoals
   has_many :orders
 
-
 end
