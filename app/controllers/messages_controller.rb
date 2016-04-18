@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     if @message.save
       @goal.messages << @message
-      redirect_to goal_messages_path
+      redirect_to goal_path(params[:goal_id])
     else
       render new_goal_message_path
     end

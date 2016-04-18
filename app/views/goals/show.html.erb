@@ -1,4 +1,15 @@
 
 <%= @goal.title %>
 <h2>Messages</h2>
-<%= link_to 'Create message', new_goal_message_path(@goal), :class => 'btn' %>
+
+<% @messages.each do |m| %>
+  <div class="message-each__container">
+    <p>Subject: <%= m.subject %></p>
+    <p>Content: <%= m.content %></p>
+  </div>
+<% end %>
+
+
+<div class="btn-container">
+  <%= link_to 'Create message', new_goal_message_path(@goal), :class => 'btn' %>
+</div>
