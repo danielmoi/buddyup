@@ -4,22 +4,22 @@ class OrdersController < ApplicationController
 
   def create
     # Amount in cents
-    @amount =
+    @amount = 5000
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
     )
 
-    order = Stripe::Order.create(
+    order = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'BuddyUp customer',
-      :currency    => 'usd'
+      :currency    => 'aud'
     )
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to new_order_path
   end
 end
