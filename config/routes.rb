@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :goals, :subgoals, :orders, :categories
+  resources :subgoals, :orders, :categories
+
+  resources :goals do
+    resources :conversations, only: [:index, :show, :new, :create] do
+      resources :messages do
+      end
+    end
+  end
 
   get '/users/edit' => 'users#edit'
 

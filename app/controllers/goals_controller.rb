@@ -15,6 +15,9 @@ class GoalsController < ApplicationController
     @goal = Goal.new goal_params
     if @goal.save
       redirect_to user_path(@current_user.id)
+      # conversation = Conversation.new
+      # send POST request to '/conversations'
+      goal.mailbox.conversations << ??
     else
       render 'new'
     end

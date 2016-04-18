@@ -6,13 +6,13 @@ class SessionController < ApplicationController
     user = User.find_by email: params[:email]
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      # log in 
+      # log in
       redirect_to root_path
     else
       flash[:error] = 'Oops'
       redirect_to login_path
     end
-end
+  end
 
   # ^^ checks if password matches and returns object
   # session will be persistent
