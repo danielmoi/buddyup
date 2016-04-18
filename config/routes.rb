@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :goals do
     resources :orders do
     end
+
+    resources :messages do
+    end
   end
 
   get '/users/edit' => 'users#edit'
