@@ -7,7 +7,7 @@
 <p>City: <%= @user.city %></p>
 
 <p>Profile Pic:
-  <img src="<%= @user.image_url %>" alt="">
+  <%= cl_image_tag(@user.image_url) %>
 </p>
 
 <div class="btn-container">

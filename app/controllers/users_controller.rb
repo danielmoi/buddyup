@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
   end
 
   def edit
@@ -27,6 +28,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
+    if params[:file]
+      req = Cloudinary::Uploader.upload params[:file]
+      user.image_url = req["url"]
+    end
+
     if @user.save
       redirect_to @user
     else
