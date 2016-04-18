@@ -26,6 +26,7 @@
     <%= f.email_field :email, :required => true, :class => 'input'  %>
   </fieldset>
 
+<% if !@current_user.present? %>
   <fieldset>
     <%= f.label :password, :class => 'label' %>
     <%= f.password_field :password, :required => true, :class => 'input' %>
@@ -35,6 +36,7 @@
     <%= f.label :password_confirmation, "Confirm password", :class => 'label' %>
     <%= f.password_field :password_confirmation, :required => true, :class => 'input' %>
   </fieldset>
+<% end %>
 
   <fieldset>
     <%= f.label :image, :class => 'label'  %>

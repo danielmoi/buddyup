@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorise, :only => [:index]
+  require 'pry-rails'
 
   def index
     @users = User.all
@@ -14,12 +15,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find params[:id]
+    @user = @current_user
+    # @user = User.find params[:id]
   end
 
   def update
-    @user = User.find params[:id]
-    # user = @current_user
+    user = @current_user
     user.update user_params
     redirect_to root_path
   end
