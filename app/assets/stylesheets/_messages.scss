@@ -1,4 +1,21 @@
+.messages__container {
+  margin: 1em 0;
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  padding: 1em 0;
+}
+
 .message-each__container {
   margin: 1em 0;
-  border: 1px solid $primary;
+  padding: 1em;
+  border-top: 1px solid $initiator;
+  border-bottom: 1px solid $initiator;
+}
+
+.message-each__subject {
+  font-weight: bold;
+}
+.message-each__timestamp {
+  font-style: italic;
+  font-size: 0.8em;
 }

@@ -1,0 +1,29 @@
+
+
+.goal-each__container {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid $primary;
+}
+
+.goal-each__title {
+  font-weight: bold;
+}
+
+.goal-each__timestamp {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.goal-each__messages-title {
+}
+
+.subgoals__container {
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  padding: 1em 0;
+}
+
+.subgoal-each__container {
+
+}
