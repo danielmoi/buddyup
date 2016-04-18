@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new message_params
+    @goal = Goal.find params[:goal_id]
     if @message.save
       redirect_to 'goal'
     else
@@ -26,6 +27,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
+    raise
     params.require(:message).permit(:initiator_id, :acceptor_id, :subject, :content)
   end
 end
