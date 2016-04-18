@@ -1,9 +1,30 @@
 
-<%= @goal.title %>
-<h2>Messages</h2>
+<h1 class="main__title">
+  <%= @goal.title.titleize %>
+</h1>
+
+<div class="goal-each__container">
+  <div class="goal-each__initiator-name">
+    Created by: <%= @goal.initiator.name %>
+  </div>
+  <div class="goal-each__acceptor-name">
+    Buddy: <%= @goal.acceptor.name if @goal.acceptor.present? %>
+  </div>
+  <div class="goal-each__created-date">
+    <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
+    <% y = time_tag(@goal.created_at) %>
+    <p class="goal-each__timestamp">
+      Created on: <%= y %> (<%= x %> ago)
+    </p>
+  </div>
+</div>
+
+<div class="goal-each__messages-title">
+  <h2>Messages</h2>
+</div>
 
 <% @messages.reverse.each do |m| %>
-  <div class="message-each__container">
+  <div class="message-each__container <%= m.goal.initiator.id == @current_user.id ? "initiator" : "acceptor" %>">
     <p class="message-each__subject">Subject: <%= m.subject %></p>
     <p class="message-each__content">Content: <%= m.content %></p>
     <% x = distance_of_time_in_words_to_now(m.created_at) %>
