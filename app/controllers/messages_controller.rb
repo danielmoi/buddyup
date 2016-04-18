@@ -6,13 +6,16 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.all
+    @goal = Goal.find params[:goal_id]
+    @messages = @goal.messages
   end
 
   def create
+    @goal = Goal.find params[:goal_id]
     @message = Message.new message_params
     if @message.save
-      redirect_to 'goal'
+      @goal.messages << @message
+      redirect_to goal_messages_path
     else
       render new_goal_message_path
     end
@@ -26,6 +29,6 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:initiator_id, :acceptor_id, :subject, :content)
+    params[goal_messages_path].permit(:initiator_id, :acceptor_id, :subject, :content)
   end
 end
