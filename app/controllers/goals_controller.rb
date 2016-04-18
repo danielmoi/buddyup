@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def index
+    @goals = Goal.all
   end
 
   def new
