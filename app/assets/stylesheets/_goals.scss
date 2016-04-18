@@ -1,3 +1,5 @@
+
+
 .goal-each__container {
   margin: 1em 0;
   padding: 1em;
@@ -14,5 +16,14 @@
 }
 
 .goal-each__messages-title {
-  margin-top: 2em;
+}
+
+.subgoals__container {
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  padding: 1em 0;
+}
+
+.subgoal-each__container {
+
 }

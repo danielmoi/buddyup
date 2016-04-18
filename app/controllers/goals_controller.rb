@@ -23,6 +23,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
+    
 
     @messages = @goal.messages
   end

@@ -1,3 +1,10 @@
+.messages__container {
+  margin: 1em 0;
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  padding: 1em 0;
+}
+
 .message-each__container {
   margin: 1em 0;
   padding: 1em;

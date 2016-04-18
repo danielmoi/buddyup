@@ -2,13 +2,16 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :subgoals, :categories
+  resources :categories
 
   resources :goals do
     resources :orders do
     end
 
     resources :messages do
+    end
+
+    resources :subgoals do
     end
   end
 

@@ -10,7 +10,7 @@
       <p><%= link_to goal.title.titleize, goal_path(goal) %></p>
     </div>
     <div class="goal-each__initiator-name">
-      Created by: <%= goal.initiator.name %>
+      Created by: <%= goal.initiator.name if goal.initiator.present? %>
     </div>
     <div class="goal-each__created-date">
       <% x = distance_of_time_in_words_to_now(goal.created_at) %>
