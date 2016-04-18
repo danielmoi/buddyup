@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'mailboxer', github: 'mailboxer/mailboxer'
 end
 
 group :development do

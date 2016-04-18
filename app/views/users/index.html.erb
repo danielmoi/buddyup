@@ -1,5 +1,8 @@
-<h1>All Users</h1>
+<h1>ALL USERS TOP SECRET</h1>
 
 <% @users.each do |user| %>
-  <div><%= user.name %></div>
+  <p>
+    <%= user.name %>
+    <%= user.email %> since <%= user.created_at %>
+  </p>
 <% end %>

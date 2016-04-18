@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authorise, :only => [:index]
+  before_action :authorise, :only => [:index]
 
   def index
     @users = User.all
@@ -42,6 +42,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :country, :city, :bio, :email, :password_digest, :image_url)
+  end
+
+  def authorise
+    redirect_to root_path unless @current_user.present? && @current_user.admin?
   end
 
 end
