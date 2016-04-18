@@ -16,7 +16,6 @@ class GoalsController < ApplicationController
     if @goal.save
       @category_ids = params[:category_ids]
       @amount = params[:amount]
-      raise
       redirect_to new_goal_order_path(@goal)
     else
       render 'new'
@@ -25,6 +24,8 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
+
+
     @messages = @goal.messages
   end
 

@@ -19,5 +19,6 @@ class Goal < ActiveRecord::Base
   has_many :subgoals
   has_many :orders
   has_many :messages
+  attr_accessor :category_ids
 
 end
