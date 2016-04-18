@@ -1,4 +1,13 @@
 .message-each__container {
   margin: 1em 0;
+  padding: 1em;
   border: 1px solid $primary;
+}
+
+.message-each__subject {
+  font-weight: bold;
+}
+.message-each__timestamp {
+  font-style: italic;
+  font-size: 0.8em;
 }

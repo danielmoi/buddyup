@@ -2,10 +2,13 @@
 <%= @goal.title %>
 <h2>Messages</h2>
 
-<% @messages.each do |m| %>
+<% @messages.reverse.each do |m| %>
   <div class="message-each__container">
-    <p>Subject: <%= m.subject %></p>
-    <p>Content: <%= m.content %></p>
+    <p class="message-each__subject">Subject: <%= m.subject %></p>
+    <p class="message-each__content">Content: <%= m.content %></p>
+    <% x = distance_of_time_in_words_to_now(m.created_at) %>
+    <% y = time_tag(m.created_at) %>
+    <p class="message-each__timestamp">Sent: <%= y %> (<%= x %> ago) </p>
   </div>
 <% end %>
 
