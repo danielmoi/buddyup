@@ -1,6 +1,9 @@
 .header {
   padding: 1em 0 0;
   border-bottom: 1px solid $primary;
+  @media screen and (min-width: 600px) {
+    text-align: center;
+  }
 }
 .header-logo__container {
   height: 70px;
@@ -17,14 +20,25 @@
   line-height: 70px;
   vertical-align: top;
   position: absolute;
-  right: 2em;
+  padding: 0 2em;
+  right: 0;
 }
 .nav__container {
+  display: none;
   max-width: 100%;
   text-align: center;
   padding: 1em 0;
+  position: absolute;
+  top: 92px;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid $primary;
 }
 .nav-list__item {
-  display: inline;
-  padding: 0 1em;
+  display: block;
+  padding: 1em 0;
+  @media screen and (min-width: 600px) {
+    display: inline;
+    padding: 0 1em;
+  }
 }

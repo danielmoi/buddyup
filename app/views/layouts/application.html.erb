@@ -23,10 +23,10 @@
       <div class="header-hamburger__container">
         <i class="fa fa-wrench"></i>
       </div>
+    </header>
 
       <nav class="nav__container">
         <ul class="nav-list">
-          <li class="nav-list__item"><%= link_to 'Home', root_path %></li>
           <li class="nav-list__item"><%= link_to 'Goals', goals_path %></li>
 
           <!--  Conditional links -->
@@ -39,12 +39,12 @@
           <% end %>
 
           <!--  For non-admin users -->
-          <li class="nav-list__item"><%= link_to "Logout #{@current_user.email}", login_path, :method => :delete %></li>
-
           <li class="nav-list__item"><%= link_to "View profile", user_path(@current_user) %></li>
 
           <li class="nav-list__item">
             <%= link_to "Edit Profile", users_edit_path %></li>
+
+          <li class="nav-list__item"><%= link_to "Logout #{@current_user.email}", login_path, :method => :delete %></li>
 
           <!--  User is not logged in -->
         <% else %>
@@ -55,7 +55,6 @@
 
         </ul>
       </nav>
-    </header>
 
     <% if flash[:error].present? %>
     <h2>

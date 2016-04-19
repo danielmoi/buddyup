@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  $('.header-hamburger__container').on('click', function(e) {
+    console.log('click');
+    $('.nav__container').toggle();
+  });
+
 
 
   $('.btn__buddy-up--before').on('click', function(e) {
