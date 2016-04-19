@@ -22,10 +22,7 @@
 
     <div class="goal-buddy-up__container">
 
-      <%= link_to "BuddyUP", "/goals/#{goal.id}/buddyup", {:goal_id => goal.id, :method => 'POST' } %>
-
-
-      <a href="/goals/<%= goal.id %>"><button class="btn btn--buddy-up">BuddyUP!</button> with <%= goal.initiator.name %> to <%= goal.title %>!</a>
+      <%= link_to "BuddyUP", "/goals/#{goal.id}/buddyup", {:goal_id => goal.id, :method => 'POST', :class => 'btn btn--buddy-up' } %> with <%= goal.initiator.name %> to <%= goal.title %>!</a>
     </div>
   </div>
 
