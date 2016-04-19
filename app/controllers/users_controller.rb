@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
+    @goals = @user.goals_initiated || @user.goals_accepted
   end
 
   def new
