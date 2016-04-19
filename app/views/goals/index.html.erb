@@ -28,10 +28,10 @@
       <a href="" class="goal-each__more-info">more info <i class="fa fa-caret-down"></i></a>
     </div>
     <div class="goal-each__initiator-country">
-      Country: <%= goal.initiator.country.upcase %>
+      Country: <%= goal.initiator.country.upcase if goal.initiator.country.present? %>
     </div>
     <div class="goal-each__goal-description">
-      <%= goal.description %>
+      <%= goal.description if goal.description.present? %>
     </div>
     <div class="goal-each__created-date">
       <% x = distance_of_time_in_words_to_now(goal.created_at) %>
