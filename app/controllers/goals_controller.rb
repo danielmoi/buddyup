@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.all
+    @goals = Goal.where(:acceptor_id => nil).where.not(:initiator_id => @current_user.id)
   end
 
   def new
@@ -24,6 +24,15 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.find params[:id]
     @messages = @goal.messages
+  end
+
+  def buddyup
+    @goal = Goal.find params[:id]
+    @goal.acceptor = @current_user # not <<
+
+    @goal.save
+    redirect_to goal_path
+
   end
 
   private

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  post '/goals/:id/buddyup' => 'goals#buddyup'
+
   resources :goals do
     resources :orders do
     end
