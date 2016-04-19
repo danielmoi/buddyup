@@ -25,6 +25,13 @@
     </div>
     <div class="goal-each__initiator-name">
       Created by: <%= goal.initiator.name if goal.initiator.present? %>
+      <a href="" class="goal-each__more-info">more info <i class="fa fa-caret-down"></i></a>
+    </div>
+    <div class="goal-each__initiator-country">
+      Country: <%= goal.initiator.country.upcase %>
+    </div>
+    <div class="goal-each__goal-description">
+      <%= goal.description %>
     </div>
     <div class="goal-each__created-date">
       <% x = distance_of_time_in_words_to_now(goal.created_at) %>
