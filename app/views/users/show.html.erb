@@ -1,25 +1,45 @@
-<h1>Welcome <%= @user.name %></h1>
+<h1 class="main__title">
+  Welcome <%= @user.name.titleize %>
+</h1>
 
-<p><%= image_tag(@user.image_url, :crop => :fill, :class => '') %></p>
-
-<p>Country: <%= @user.country %></p>
-<p>City: <%= @user.city %></p>
-<p>Bio: <%= @user.bio %></p>
+<div class="profile-each__container">
+  <div class="profile-each__user-name">
+    <%= image_tag(@user.image_url, :crop => :fill) %>
+  </div>
+  <div class="profile-each__user-location">
+    Location:
+    <%= @user.city %>, <%= @user.country %>
+  </div>
+  <div class="profile-each__user-bio">
+    About me:
+    <%= @user.bio %>
+  </div>
+</div>
 
 <div class="btn-container">
   <%= link_to "Edit Profile", users_edit_path, :class => 'btn' %>
 </div>
 
+<div class="goals__container">
+  <div class="profile-each__goals-title">
+    <h2>Goals</h2>
+  </div>
+  <div class="profile-each__goals-uncompleted">
+    <h2>In progress:</h2>
+    <% @goals.each do |g| %>
+      <% if g.achieved == false %>
+        <h3><%= link_to g.title, g %></h3>
+      <% end %>
+      <h2>Achieved:</h2>
+      <% if g.achieved %>
+        <h3><%= link_to g.title, g %></h3>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<h2>Goals</h2>
-
-<% @goals.each do |g| %>
-  <h3><%= link_to g.title, g %></h3>
-  <% if g.achieved %>
-    <p><%= "achieved!" %></p>
-  <% else %>
-    <p><%= "In progress" %></p>
-  <% end %>
-<% end %>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error enim necessitatibus esse saepe eius iure rerum consectetur laudantium illum? Dolore saepe sapiente id repellat libero quos, pariatur sunt sint quasi.</p>
+<div class="quote__container">
+  <div class="quote-each__quote">
+    "Do something today that your future self will thank you for"
+  </div>
+</div>
