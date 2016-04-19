@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
 
   def index
     if @current_user.present?
-      @goals = Goal.where(:acceptor_id => nil) - Goal.where(:initiator_id => @current_user.id)
+      @goals = Goal.where(:acceptor_id => nil) - Goal.where(:initiator_id => @current_user.id) - Goal.where(:initiator_id => nil)
     else
       @goals = Goal.all
     end
