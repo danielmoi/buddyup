@@ -1,0 +1,37 @@
+.modal__container {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.1);
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.modal {
+  background: #fff;
+  border: 1px solid $primary;
+  border-radius: 1em;
+  left: 0;
+  right: 0;
+  top: 25%;
+  max-width: 50%;
+  min-height: 300px;
+  margin: auto;
+  position: absolute;
+  padding: 2em;
+}
+
+.modal__title {
+  text-align: center;
+}
+
+.modal__text {
+  text-align: center;
+}
+
+.modal__buttons {
+  text-align: center;
+  padding: 2em 0;
+}

@@ -42,3 +42,5 @@ sg4 = Subgoal.create(title: "Read a spanish newspaper")
 Learn_spanish.subgoals << sg4
 sg5 = Subgoal.create(title: "Write a poem")
 Learn_spanish.subgoals << sg5
+
+Message.destroy_all
