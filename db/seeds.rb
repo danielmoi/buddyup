@@ -8,7 +8,7 @@
 
 
 User.destroy_all
-Sam = User.create(name: "Sam", email: "sam@test.com", password: "chicken", country: "Aus")
+Sam = User.create(name: "Sam", email: "sam@test.com", password: "chicken", country: "Aus", admin: true)
 Jenn = User.create(name: "Jenn", email: "jenn@test.com", password: "chicken", country: "Aus")
 Dan = User.create(name: "Dan", email: "dan@test.com", password: "chicken", country: "Aus")
 

@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if user_params[:image_url]
         # raise
       req = Cloudinary::Uploader.upload user_params[:image_url]
