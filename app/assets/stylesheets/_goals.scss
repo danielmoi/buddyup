@@ -9,6 +9,21 @@
 .goal-each__title {
   font-weight: bold;
 }
+.goal-each__initiator-country {
+  display: none;
+}
+.goal-each__goal-description {
+  display: none;
+  font-style: italic;
+}
+.goal-each__more-info {
+  font-size: 0.7em;
+  color: $primary;
+  padding-left: 1em;
+  .fa.fa-caret-down {
+    color: $primary;
+  }
+}
 
 .goal-each__timestamp {
   font-style: italic;

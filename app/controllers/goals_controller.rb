@@ -3,7 +3,11 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.where(:acceptor_id => nil) - Goal.where.not(:initiator_id => @current_user.id)
+    if @current_user.present?
+      @goals = Goal.where(:acceptor_id => nil) - Goal.where.not(:initiator_id => @current_user.id)
+    else
+      @goals = Goal.all
+    end
   end
 
   def new

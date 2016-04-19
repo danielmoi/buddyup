@@ -1,23 +1,44 @@
 .header {
-  padding: 1em 0 0 0;
+  padding: 1em 0 0;
   border-bottom: 1px solid $primary;
+  @media screen and (min-width: 600px) {
+    text-align: center;
+  }
 }
-
 .header-logo__container {
   height: 70px;
-  text-align: center;
+  text-align: left;
+  margin-left: 2em;
+  display: inline-block;
 }
-
 .header-logo__image {
   height: 100%;
 }
+.header-hamburger__container {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  vertical-align: top;
+  position: absolute;
+  padding: 0 2em;
+  right: 0;
+}
 .nav__container {
+  display: none;
   max-width: 100%;
   text-align: center;
   padding: 1em 0;
+  position: absolute;
+  top: 92px;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid $primary;
 }
 .nav-list__item {
-  display: inline;
-  padding: 0 1em;
-
+  display: block;
+  padding: 1em 0;
+  @media screen and (min-width: 600px) {
+    display: inline;
+    padding: 0 1em;
+  }
 }

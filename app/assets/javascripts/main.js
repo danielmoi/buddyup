@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+  $('.header-hamburger__container').on('click', function(e) {
+    console.log('click');
+    $('.nav__container').toggle();
+  });
+
+  $('.goal-each__more-info').on('click', function(e) {
+    console.log($(this).parent().parent());
+    e.preventDefault();
+    $(this).parent().parent().find('.goal-each__initiator-country').toggle();
+    $(this).parent().parent().find('.goal-each__goal-description').toggle();
+  });
+
 
 
   $('.btn__buddy-up--before').on('click', function(e) {
