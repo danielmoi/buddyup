@@ -1,9 +1,4 @@
-<h1>All Messages</h1>
-
-<%= link_to 'Create g', new_goal_path, :class => 'btn' %>
-
-<% @goals.each do |goal| %>
-  <p>
-    <%= link_to goal.title, goal_path(goal) %>
-  </p>
+<h1>Choose a Category</h1>
+<% @categories.each do |c| %>
+  <p><%= link_to c.title, c %></p>
 <% end %>

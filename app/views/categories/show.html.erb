@@ -1,2 +1,7 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+<div class="main__heading">
+  <h2><%= @category.title %></h2>
+</div>
+<% @goals.each do |c|%>
+<div><%= link_to c.title, c %></div>
+<% end %>

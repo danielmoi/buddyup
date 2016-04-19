@@ -23,13 +23,12 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
-    
-
     @messages = @goal.messages
   end
 
   private
   def goal_params
-    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id, :amount)
+    params.require(:goal).permit(:title, :description, :achieved, :acceptor_id, :initiator_id, :amount, category_ids: [])
+    # ^^ category_ids: [] is equiv to :category_ids => []
   end
 end
