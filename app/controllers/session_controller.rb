@@ -1,4 +1,7 @@
 class SessionController < ApplicationController
+  def home
+  end
+
   def new
   end
 
@@ -7,9 +10,12 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       # log in
-      redirect_to root_path
+      redirect_to user_path(user)
+    elsif
+      !user
+      redirect_to signup_path
     else
-      flash[:error] = 'Oops'
+      flash[:error]='Incorrect email or password'
       redirect_to login_path
     end
   end
