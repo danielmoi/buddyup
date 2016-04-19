@@ -1,15 +1,23 @@
 .header {
-  padding: 1em 0 0 0;
+  padding: 1em 0 0;
   border-bottom: 1px solid $primary;
 }
-
 .header-logo__container {
   height: 70px;
-  text-align: center;
+  text-align: left;
+  margin-left: 2em;
+  display: inline-block;
 }
-
 .header-logo__image {
   height: 100%;
+}
+.header-hamburger__container {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  vertical-align: top;
+  position: absolute;
+  right: 2em;
 }
 .nav__container {
   max-width: 100%;
@@ -19,5 +27,4 @@
 .nav-list__item {
   display: inline;
   padding: 0 1em;
-
 }
