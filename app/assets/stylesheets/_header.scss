@@ -1,6 +1,7 @@
 .header {
   padding: 1em 0 0;
   border-bottom: 1px solid $primary;
+  background: rgba(255, 104, 28, 0.1);
   @media screen and (min-width: 600px) {
     text-align: center;
   }
