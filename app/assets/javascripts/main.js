@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
-  $('.header-hamburger__container').on('click', function(e) {
+  $('.menu-toggle__container').on('click', function(e) {
     console.log('click');
     $('.nav__container').toggle();
+    $('.fa-caret-down').toggleClass('fa-caret-up');
   });
 
   $('.goal-each__more-info').on('click', function(e) {

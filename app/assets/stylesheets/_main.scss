@@ -4,11 +4,12 @@
 }
 
 .main {
-  margin: 50px auto;
+  margin: 110px auto;
   padding: 0 2em;
-  min-height: 400px;
+  min-height: 90vh;
   @media screen and (min-width: 600px) {
-    margin: 120px auto;
+    margin: 150px auto;
+    padding-top: 2em;
   }
 }
 
