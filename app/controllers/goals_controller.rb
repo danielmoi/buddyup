@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.where(:acceptor_id => nil).where.not(:initiator_id => @current_user.id)
+    @goals = Goal.where(:acceptor_id => nil) - Goal.where.not(:initiator_id => @current_user.id)
   end
 
   def new
@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new goal_params
+    @goal.initiator = @current_user
     if @goal.save
       @amount = params[:amount]
       redirect_to new_goal_order_path(@goal)
