@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.where(:acceptor_id => nil)
+    @goals = Goal.where(:acceptor_id => nil) && Goal.where.not(:initiator_id => @current_user.id)
   end
 
   def new
