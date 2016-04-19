@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params[goal_messages_path].permit(:initiator_id, :acceptor_id, :subject, :content)
+    params.require(:message).permit(:initiator_id, :acceptor_id, :subject, :content)
+
   end
 end
