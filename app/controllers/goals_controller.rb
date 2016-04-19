@@ -1,5 +1,13 @@
 class GoalsController < ApplicationController
   def edit
+    @goal = Goal.find params[:id]
+    @categories = Category.all
+  end
+
+  def update
+    goal = Goal.find params[:id]
+    goal.update goal_params
+    redirect_to goal_path
   end
 
   def index

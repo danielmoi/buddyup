@@ -2,6 +2,10 @@
   <%= @goal.title.titleize %>
 </h1>
 
+<div class="goal-edit__container">
+  <%= link_to "Edit Goal", edit_goal_path , :class => 'goal-edit' %>
+</div>
+
 <div class="goal-each__container">
   <div class="goal-each__initiator-name">
     Created by:
@@ -11,6 +15,7 @@
     Buddy:
     <%= @goal.acceptor.name if @goal.acceptor.present? %>
   </div>
+
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
     <% y = time_tag(@goal.created_at) %>
