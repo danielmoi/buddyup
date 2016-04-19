@@ -16,6 +16,13 @@
     <%= @goal.acceptor.name if @goal.acceptor.present? %>
   </div>
 
+  <div class="goal-show__goal-description">
+    Description: <%= @goal.description %>
+  </div>
+
+  <div class="goal-show__goal-pledge">
+    Pledged: <%= number_to_currency(@goal.amount / 100) %>
+  </div>
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
     <% y = time_tag(@goal.created_at) %>
