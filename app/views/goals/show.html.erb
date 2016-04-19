@@ -2,9 +2,11 @@
   <%= @goal.title.titleize %>
 </h1>
 
-<div class="goal-edit__container">
-  <%= link_to "Edit Goal", edit_goal_path , :class => 'goal-edit' %>
-</div>
+<% if @goal.acceptor.nil? %>
+  <div class="goal-edit__container">
+    <%= link_to "Edit Goal", edit_goal_path , :class => 'goal-edit' %>
+  </div>
+<% end %>
 
 <div class="goal-each__container">
   <div class="goal-each__initiator-name">
@@ -17,11 +19,13 @@
   </div>
 
   <div class="goal-show__goal-description">
-    Description: <%= @goal.description %>
+    Description:
+    <%= @goal.description %>
   </div>
 
   <div class="goal-show__goal-pledge">
-    Pledged: <%= number_to_currency(@goal.amount) %>
+    Pledged:
+    <%= number_to_currency(@goal.amount) %>
   </div>
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
@@ -33,9 +37,6 @@
       ago)
     </p>
   </div>
-
-
-
 
 </div>
 <div class="subgoals__container">
