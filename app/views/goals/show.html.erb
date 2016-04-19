@@ -21,7 +21,7 @@
   </div>
 
   <div class="goal-show__goal-pledge">
-    Pledged: <%= number_to_currency(@goal.amount / 100) %>
+    Pledged: <%= number_to_currency(@goal.amount) %>
   </div>
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
