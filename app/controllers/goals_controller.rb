@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.all
+    @goals = Goal.where(:acceptor_id => nil)
   end
 
   def new
@@ -23,9 +23,13 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
-    
+
 
     @messages = @goal.messages
+  end
+
+  def buddyup
+
   end
 
   private

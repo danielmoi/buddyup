@@ -19,5 +19,9 @@
         Created on: <%= y %> (<%= x %> ago)
       </p>
     </div>
+
+    <div>
+      <a href="/goals/<%= goal.id %>"><button class="btn btn--buddy-up">BuddyUP!</button> with <%= goal.initiator.name %> to <%= goal.title %>!</a>
+    </div>
   </div>
 <% end %>

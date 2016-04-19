@@ -8,6 +8,13 @@
   background: #fff;
   // box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
 }
+
+.btn--buddy-up {
+  background: $secondary;
+  color: white;
+  padding: 5px 10px;
+}
+
 .btn:hover {
   text-decoration: none;
 }
