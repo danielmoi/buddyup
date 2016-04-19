@@ -1,19 +1,26 @@
+<div class="container">
 <h1 class="main__title">BuddyUP</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur et aliquam reiciendis temporibus recusandae officia, molestiae quae nobis? Eligendi nostrum odit velit ullam, a ea id ab obcaecati incidunt.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur et aliquam reiciendis temporibus recusandae officia, molestiae quae nobis? Eligendi nostrum odit velit ullam, a ea id ab obcaecati incidunt.</p>
+<div class="main">
+<p>Did you know that you're more likely to achieve your goals with the support
+and encouragement of a buddy? Here at BuddyUp we want everyone to succeed in all their
+endeavours so we created a global support network for all!</p>
+<p>Sign up, browse the available goals or set up your own goal. Find a new friend to BuddyUp
+with and achieve together.</p>
+<p>Pledge a minimum of $50 and once your goals are achieved both your
+pledges will be donated to the Charity of the Month. What do you want to succeed
+at today? Jump in and BuddyUp!</p>
 
-<h1>Login</h1>
-<div class="signup_container">
 <%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <%= label_tag :email, nil, class: "label" %>
+  <%= text_field_tag :email, nil, class: "input" %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= label_tag :password, nil, class: "label" %>
+  <%= password_field_tag :password, nil, class: "input" %>
 
   <div class="btn-container">
-  <%= submit_tag "Login/Signup" %>
+
+  <%= submit_tag "Login/Signup", :class => 'btn' %>
 </div>
 <% end %>
 </div>
