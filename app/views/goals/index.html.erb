@@ -1,5 +1,19 @@
 <h1 class="main__title">All Goals</h1>
 
+<div class="modal__container">
+  <div class="modal">
+    <h2 class="modal__title">Confirm</h2>
+    <div class="modal__text">
+      <p>Are you sure you want to <i class="modal-goal"></i> with <i class="modal-initiator"></i>?</p>
+    </div>
+    <div class="modal__buttons">
+      <%= link_to "BuddyUP", "", {:class => 'btn btn__buddy-up--confirm', :method => 'POST' } %>
+      <%= link_to "Cancel", goals_path, :class => 'btn btn__buddy-up--cancel' %>
+    </div>
+  </div>
+
+</div>
+
 <div class="btn-container">
   <%= link_to 'Create goal', new_goal_path, :class => 'btn' %>
 </div>
@@ -21,8 +35,7 @@
     </div>
 
     <div class="goal-buddy-up__container">
-
-      <%= link_to "BuddyUP", "/goals/#{goal.id}/buddyup", {:goal_id => goal.id, :method => 'POST', :class => 'btn btn--buddy-up' } %> with <%= goal.initiator.name %> to <%= goal.title %>!</a>
+      <%= link_to "BuddyUP", "/", {:goal_id => goal.id, :initiator => goal.initiator.name, :goal => goal.title.titleize, :class => 'btn btn__buddy-up--before' } %>
     </div>
   </div>
 
