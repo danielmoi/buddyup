@@ -3,7 +3,8 @@
   margin: 0 auto;
 }
 
-.main {
+.main__container {
+  max-width: 900px;
   margin: 110px auto;
   padding: 0 2em;
   min-height: 90vh;
