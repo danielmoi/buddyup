@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
   def create
     @goal = Goal.find params[:goal_id]
     @message = Message.new message_params
+    @goal = Goal.find params[:goal_id]
     if @message.save
       @goal.messages << @message
       redirect_to goal_path(params[:goal_id])
