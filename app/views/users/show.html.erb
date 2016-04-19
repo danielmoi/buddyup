@@ -1,15 +1,25 @@
-<h1>Profile</h1>
+<h1>Welcome <%= @user.name %></h1>
 
-<p>Name: <%= @user.name %></p>
-<p>Email: <%= @user.email %></p>
-<p>Bio: <%= @user.bio %></p>
+<p><%= image_tag(@user.image_url, :crop => :fill, :class => '') %></p>
+
 <p>Country: <%= @user.country %></p>
 <p>City: <%= @user.city %></p>
-
-<p>Profile Pic:
-  <%= image_tag(@user.image_url) %>
-</p>
+<p>Bio: <%= @user.bio %></p>
 
 <div class="btn-container">
   <%= link_to "Edit Profile", users_edit_path, :class => 'btn' %>
 </div>
+
+
+<h2>Goals</h2>
+
+<% @goals.each do |g| %>
+  <h3><%= link_to g.title, g %></h3>
+  <% if g.achieved %>
+    <p><%= "achieved!" %></p>
+  <% else %>
+    <p><%= "In progress" %></p>
+  <% end %>
+<% end %>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error enim necessitatibus esse saepe eius iure rerum consectetur laudantium illum? Dolore saepe sapiente id repellat libero quos, pariatur sunt sint quasi.</p>
