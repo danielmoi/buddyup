@@ -2,15 +2,15 @@
   Welcome <%= @user.name.titleize %>
 </h1>
 
-<div class="profile-each__container">
-  <div class="profile-each__user-name">
-    <%= image_tag(@user.image_url, :crop => :fill) %>
+<div class="user-each__container">
+  <div class="user-each__user-pic">
+    <%= image_tag(@user.image_url, :crop => :fill, :class => "user-each__user-pic") %>
   </div>
-  <div class="profile-each__user-location">
+  <div class="user-each__user-location">
     Location:
     <%= @user.city %>, <%= @user.country %>
   </div>
-  <div class="profile-each__user-bio">
+  <div class="user-each__user-bio">
     About me:
     <%= @user.bio %>
   </div>
@@ -21,10 +21,10 @@
 </div>
 
 <div class="goals__container">
-  <div class="profile-each__goals-title">
+  <div class="user-each__goals-title">
     <h2>Goals</h2>
   </div>
-  <div class="profile-each__goals-uncompleted">
+  <div class="user-each__goals-uncompleted">
     <h2>In progress:</h2>
     <% @goals.each do |g| %>
       <% if g.achieved == false %>
