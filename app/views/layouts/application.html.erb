@@ -35,12 +35,8 @@
 
           <!--  User is admin -->
           <% if @current_user.admin? %>
-<<<<<<< HEAD
           <li class="nav-list__item"><%= link_to 'All Users', users_path %></li>
           <li class="nav-list__item"><%= link_to 'Categories', categories_path %></li>
-=======
-          <li class="nav-list__item"><%= link_to 'ALL USERS', users_path %></li>
->>>>>>> 69a0a907e5d92c6ecf2f8c328aab1db033def059
           <% end %>
 
           <!--  For non-admin users -->
