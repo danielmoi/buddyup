@@ -21,20 +21,24 @@
       ago)
     </p>
   </div>
+
+
+
+
 </div>
 <div class="subgoals__container">
   <div class="goal-each__subgoals-title">
     <h2>Subgoals</h2>
 
     <h3>To do:</h3>
-    <% @goal.subgoals.where('completed' == false).each do |s| %>
+    <% @goal.subgoals.where(:completed => false).each do |s| %>
     <div class="subgoal-each__container">
       <%= s.title.titleize %>
     </div>
     <% end %>
 
     <h3>Completed:</h3>
-    <% @goal.subgoals.where('completed').each do |s| %>
+    <% @goal.subgoals.where(:completed => true).each do |s| %>
     <div class="subgoal-each__container">
       <%= s.title.titleize %>
     </div>

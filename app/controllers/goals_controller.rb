@@ -29,6 +29,11 @@ class GoalsController < ApplicationController
   end
 
   def buddyup
+    @goal = Goal.find params[:id]
+    @goal.acceptor = @current_user # not <<
+
+    @goal.save
+    redirect_to goal_path
 
   end
 
