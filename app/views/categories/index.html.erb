@@ -1,8 +1,9 @@
+<div class="main__heading">
 <h1>Choose a Category</h1>
 
 <% @categories.each do |c| %>
   <p>
-  <%= link_to c.title, c %>
+    <%= link_to c.title, c %>
     <% if @current_user.admin? && c.goals.length == 0 %>
       <%= link_to 'Delete', category_path(c), :method => :delete , :class => 'btn' %>
     <% end %>
