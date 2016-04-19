@@ -23,6 +23,9 @@
   position: absolute;
   padding: 0 2em;
   right: 0;
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
 }
 .nav__container {
   display: none;
@@ -30,14 +33,18 @@
   text-align: center;
   padding: 1em 0;
   position: absolute;
-  top: 92px;
+  top: 90px;
   width: 100%;
-  background: white;
+  background: $primary-light;
   border-bottom: 1px solid $primary;
+  @media screen and (min-width: 600px) {
+    display: block;
+  }
 }
 .nav-list__item {
   display: block;
   padding: 1em 0;
+  font-size: 0.8em;
   @media screen and (min-width: 600px) {
     display: inline;
     padding: 0 1em;

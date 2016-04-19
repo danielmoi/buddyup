@@ -1,11 +1,14 @@
 <h1>Login</h1>
+<div class="signup_container">
+<%= form_tag login_path, :html => {:class => 'form'} do %>
+  <%= label_tag :email, :class => 'label' %>
+  <%= text_field_tag :email, :class => 'input' %>
 
-<%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <%= label_tag :password, :class => 'label' %>
+  <%= password_field_tag :password, :class => 'input' %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
+  <div class="btn-container">
   <%= submit_tag %>
+</div>
 <% end %>
+</div>

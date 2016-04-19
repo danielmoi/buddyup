@@ -3,6 +3,8 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur et aliquam reiciendis temporibus recusandae officia, molestiae quae nobis? Eligendi nostrum odit velit ullam, a ea id ab obcaecati incidunt.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur et aliquam reiciendis temporibus recusandae officia, molestiae quae nobis? Eligendi nostrum odit velit ullam, a ea id ab obcaecati incidunt.</p>
 
+<h1>Login</h1>
+<div class="signup_container">
 <%= form_tag login_path do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
@@ -10,5 +12,8 @@
   <%= label_tag :password %>
   <%= password_field_tag :password %>
 
-  <%= submit_tag "Login/Signup", :class => 'btn'%>
+  <div class="btn-container">
+  <%= submit_tag "Login/Signup" %>
+</div>
 <% end %>
+</div>

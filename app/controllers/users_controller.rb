@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authorise, :only => [:index]
-  require 'pry-rails'
 
   def index
     @users = User.all
