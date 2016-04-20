@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  post '/goals/:goal_id/buddyup' => 'goals#buddyup' 
+
   resources :goals do
     resources :orders do
     end
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+
+
 
 end
