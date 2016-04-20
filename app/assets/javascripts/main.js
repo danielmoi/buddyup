@@ -27,11 +27,15 @@ $(document).ready(function() {
   });
 
   $('.amount').on('click', function(n){
-    
+
   });
 
   $('#new_subgoal').on('ajax:success', function (something, response) {
     $('#subgoals-list').prepend(response);
+  });
+
+  $('.subgoal-delete__container').on('ajax:success', function(something, response) {
+    $(this).parent().hide();
   });
 
 

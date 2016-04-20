@@ -38,6 +38,12 @@ class SubgoalsController < ApplicationController
 
   end
 
+  def destroy
+    subgoal = Subgoal.find params[:id]
+    subgoal.destroy
+    render :nothing => true
+  end
+
   def from_button
     @goal = Goal.find params[:goal_id]
     @subgoals = @goal.subgoals
