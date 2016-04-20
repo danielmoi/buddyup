@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @category = Category.find params[:id]
+    redirect_to goals_path
   end
 
   def new
