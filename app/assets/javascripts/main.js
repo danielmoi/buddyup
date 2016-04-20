@@ -26,9 +26,13 @@ $(document).ready(function() {
     });
   });
 
-  $('.amount').on('click', function(n){
-    
-  });
-
+   $('.amount').on('click', function(e){
+     console.log("hello from function");
+     if (parseInt($('#goal_amount').val()) < 50){
+       console.log("hello from if");
+     $(alert("Please pledge a minimum of $50"));
+     $(event.preventDefault());
+   }
+   });
 
 });
