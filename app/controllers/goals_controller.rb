@@ -36,8 +36,10 @@ class GoalsController < ApplicationController
       render 'new'
     end
   end
+
   def show
     @goal = Goal.find params[:id]
+    @subgoal = Subgoal.new
     @messages = @goal.messages
     @subgoals = @goal.subgoals
   end

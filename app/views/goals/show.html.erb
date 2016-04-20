@@ -41,16 +41,34 @@
 </div>
 
 <div id="subgoals__tutorial">
-  <h2>Subgoals tutorial</h2>
-  <!--  When we use do/end with link_to, we remove the String "New subgoal"-->
-  <%= link_to new_goal_subgoal_path(@goal.id), remote: true do %>
-    <button class="btn">New Subgoal</button>
-  <% end %>
+  <h2>Subgoals</h2>
 
-  <div id="subgoal-form"></div>
 
-  <div id="subgoals">
-    <%= render @subgoals %>
+  <div id="subgoal-form">
+    <!--  { Setting remote: true } tells Rails to submit this form as AJAX, looking for JS -->
+    <%= form_for ([@goal, @subgoal]), { remote: true } do |f| %>
+
+      <fieldset>
+        <%= f.label :title, :class => 'label' %>
+        <%= f.text_field :title, :class => 'input' %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :description, :class => 'label' %>
+        <%= f.text_field :description, :class => 'input' %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :completed, "Completed?", :class => 'label' %>
+        <%= f.check_box :completed, :class => 'input' %>
+      </fieldset>
+      <div class="btn-container">
+        <%= f.submit "Create Subgoal", :class => 'btn' %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div id="subgoals-list">
+    <%= render partial: 'subgoals_list', locals: { subgoals: @subgoals} %>
   </div>
 
 </div>
