@@ -27,15 +27,17 @@ class GoalsController < ApplicationController
     @goal = Goal.new goal_params
     @goal.initiator = @current_user
     if @goal.save
+
       @amount = params[:amount]
       # if params[:goal][:amount] < '50'
       #   flash[:error]='The minimum pledge is $50'
       # elsif
-        redirect_to new_goal_order_path(@goal)
+      redirect_to new_goal_order_path(@goal)
     else
       render 'new'
     end
   end
+
   def show
     @goal = Goal.find params[:id]
     @messages = @goal.messages
