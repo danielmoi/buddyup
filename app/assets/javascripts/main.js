@@ -77,10 +77,12 @@ $(document).ready(function() {
     console.log("hello from function");
     if (parseInt($('#goal_amount').val()) < 50){
       console.log("hello from if");
-    $(alert("Please pledge a minimum of $50"));
-    $(event.preventDefault());
-  }
+      $(event.preventDefault());
+      $('.modal__container').show();
+      $('.btn__buddy-up--confirm');
+    }
   });
+
 
 $('.goal-achieved__btn').on('click', function(e) {
   e.preventDefault();
@@ -91,7 +93,20 @@ $('.goal-achieved__btn').on('click', function(e) {
   //   $('.goal-achieved__btn').hide;
   // }});
 
-})
+});
 
+
+//   $('#cat').on('click', function(e){
+//     $(event.preventDefault());
+//
+//     if($('#cat').data('cat-id') === $('#goal_cat').data('goal_cat_id')){
+//       console.log("yippee!");
+//       $('#categories-list').append('cat_id');
+//
+//     // console.log($('cat').data('cat_id'));
+// }
+// $(event.preventDefault());
+//
+//   });
 
 });

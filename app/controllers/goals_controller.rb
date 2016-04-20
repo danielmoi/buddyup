@@ -11,6 +11,8 @@ class GoalsController < ApplicationController
   end
 
   def index
+    @category =
+    @categories = Category.all
     if @current_user.present?
       @goals = Goal.where(:acceptor_id => nil) - Goal.where(:initiator_id => @current_user.id) - Goal.where(:initiator_id => nil)
     else

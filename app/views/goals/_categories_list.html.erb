@@ -1,0 +1,16 @@
+<% @categories.each do |c| %>
+  <p>
+    <div id='cat' class="btn btn__buddy-up-before">
+    <%= link_to c.title, c %>
+    </div>
+    <% if @current_user.admin? && c.goals.length == 0 %>
+      <%= link_to 'Delete', category_path(c), :method => :delete , :class => 'btn' %>
+    <% end %>
+  </p>
+<% end %>
+
+<div class="btn-container">
+  <% if @current_user.admin? %>
+    <%= link_to 'Add Category', new_category_path, :class => 'btn' %>
+  <% end %>
+</div>
