@@ -29,6 +29,7 @@ class GoalsController < ApplicationController
     if @goal.save
 
       @amount = params[:amount]
+
       # if params[:goal][:amount] < '50'
       #   flash[:error]='The minimum pledge is $50'
       # elsif
@@ -41,6 +42,7 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.find params[:id]
     @messages = @goal.messages
+    @subgoals = @goal.subgoals
   end
 
   def buddyup
