@@ -31,16 +31,42 @@
 }
 
 .subgoals__container {
+  display: none;
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
   padding: 1em 0;
 }
-
-.subgoal-each__container {
-
-}
-
 .goal-edit__container {
   text-align: center;
   color: $primary;
+}
+.subgoal-each__container {
+  border-top: 1px solid $primary-light;
+  border-bottom: 1px solid $primary-light;
+  margin: 0.5em 0;
+  padding: 0.5em 0;
+}
+.subgoal-checkbox__container {
+  display: inline-block;
+}
+.subgoal-title__container {
+  display: inline-block;
+  width: 50%;
+}
+.subgoal-title__text {
+  display: inline-block;
+}
+
+.subgoal-title__input {
+  display: none;
+}
+
+.subgoal-edit__container {
+  display: inline-block;
+}
+.subgoal-save__link {
+  display: none;
+}
+.subgoal-delete__container {
+  display: inline-block;
 }

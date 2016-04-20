@@ -26,13 +26,9 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new goal_params
     @goal.initiator = @current_user
-    if @goal.save
-
-      @amount = params[:amount]
-
-      # if params[:goal][:amount] < '50'
-      #   flash[:error]='The minimum pledge is $50'
-      # elsif
+    @error_amount = @goal[:amount]
+    if
+      @goal.save
       redirect_to new_goal_order_path(@goal)
     else
       render 'new'
@@ -41,6 +37,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
+    @subgoal = Subgoal.new
     @messages = @goal.messages
     @subgoals = @goal.subgoals
   end
@@ -53,11 +50,12 @@ class GoalsController < ApplicationController
   end
 
   def buddyup
-    @goal = Goal.find params[:id]
+    @goal = Goal.find params[:goal_id]
     @goal.acceptor = @current_user # not <<
 
     @goal.save
-    redirect_to goal_path
+    redirect_to goal_path params[:goal_id]
+
   end
 
   private

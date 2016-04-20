@@ -38,6 +38,40 @@
   </div>
 
 </div>
+
+<div id="subgoals__tutorial">
+  <h2>Subgoals</h2>
+
+
+  <div id="subgoal-form">
+    <!--  { Setting remote: true } tells Rails to submit this form as AJAX, looking for JS -->
+    <%= form_for ([@goal, @subgoal]), { remote: true } do |f| %>
+
+      <fieldset>
+        <%= f.label :title, :class => 'label' %>
+        <%= f.text_field :title, :class => 'input' %>
+      </fieldset>
+      <!-- <fieldset>
+        <%= f.label :description, :class => 'label' %>
+        <%= f.text_field :description, :class => 'input' %>
+      </fieldset> -->
+      <!-- <fieldset>
+        <%= f.label :completed, "Completed?", :class => 'label' %>
+        <%= f.check_box :completed, :class => 'input', :id => 'done' %>
+      </fieldset> -->
+      <div class="btn-container">
+        <%= f.submit "Create Subgoal", :class => 'btn' %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div id="subgoals-list">
+    <%= render partial: 'subgoals_list', locals: { subgoals: @subgoals} %>
+  </div>
+
+</div>
+
 <div class="subgoals__container">
   <div class="goal-each__subgoals-title">
     <h2>Subgoals</h2>
