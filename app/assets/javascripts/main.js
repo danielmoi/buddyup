@@ -1,4 +1,14 @@
+var app = app || {};
+
 $(document).ready(function() {
+
+  // Backbone
+  app.router = new app.AppRouter();
+  Backbone.history.start();
+
+
+
+  // Rest of App
   $('.subgoal-title__input').hide();
 
   $('.menu-toggle__container').on('click', function(e) {
