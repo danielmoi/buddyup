@@ -33,8 +33,13 @@ class GoalsController < ApplicationController
     #   redirect_to login_path
     # end
     if @goal.save
+
       @amount = params[:amount]
-        redirect_to new_goal_order_path(@goal)
+
+      # if params[:goal][:amount] < '50'
+      #   flash[:error]='The minimum pledge is $50'
+      # elsif
+      redirect_to new_goal_order_path(@goal)
     else
       render 'new'
     end
@@ -46,13 +51,19 @@ class GoalsController < ApplicationController
     @subgoals = @goal.subgoals
   end
 
+  def destroy
+    goal = Goal.find params[:id]
+    @user = User.all
+    goal.destroy
+    redirect_to goals_path
+  end
+
   def buddyup
     @goal = Goal.find params[:id]
     @goal.acceptor = @current_user # not <<
 
     @goal.save
     redirect_to goal_path
-
   end
 
   private
