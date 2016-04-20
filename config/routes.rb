@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/goals/:goal_id/buddyup' => 'goals#buddyup'
 
-
+  # post '/goals/:goal_id/achieved' => 'goals#achieved'
   # post 'goals/:goal_id/buddyup' => 'goals#buddyup'
 
   resources :goals do
