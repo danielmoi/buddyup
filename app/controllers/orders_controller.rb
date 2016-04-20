@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def new
     @goal = Goal.find params[:goal_id]
     @amount = @goal.amount * 100
