@@ -27,13 +27,19 @@ class GoalsController < ApplicationController
     @goal = Goal.new goal_params
     @goal.initiator = @current_user
     @error_amount = @goal[:amount]
-    if
-      @goal.save
+    if @goal.save
       redirect_to new_goal_order_path(@goal)
     else
       render 'new'
     end
   end
+
+  # def achieved
+  #   @goal = Goal.find params[:id]
+  #   @goal.achieved = true
+  #   @goal.save
+  #   user_path(@current_user)
+  # end
 
   def show
     @goal = Goal.find params[:id]
@@ -44,9 +50,9 @@ class GoalsController < ApplicationController
 
   def destroy
     goal = Goal.find params[:id]
-    @user = User.all
-    goal.destroy
-    redirect_to goals_path
+    # goal.destroy
+    raise
+    redirect_to user_path(@current_user)
   end
 
   def buddyup

@@ -4,7 +4,10 @@
 
 <% if @goal.acceptor.nil? %>
   <div class="goal-edit__container">
-    <%= link_to "Edit Goal", edit_goal_path , :class => 'goal-edit' %>
+    <%= link_to "Edit", edit_goal_path , :class => 'goal-edit' %>
+    <% if @goal.acceptor_id == nil %>
+      <%= link_to 'Delete', goal_path(@goal), :method => :delete , :class => 'goal-delete' %>
+    <% end %>
   </div>
 <% end %>
 
@@ -26,6 +29,14 @@
   <div class="goal-show__goal-pledge">
     Pledged: <%= number_to_currency(@goal.amount) %>
   </div>
+
+  <div class="goal-show__goal-status">
+    Status: <%= goal_status(@goal) %>
+    <% if !@goal.achieved %>
+      <button class="goal-achieved__btn">Goal Achieved</button>
+    <% end %>
+  </div>
+
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
     <% y = time_tag(@goal.created_at) %>
