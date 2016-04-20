@@ -12,6 +12,7 @@
     <div class="subgoal-edit__container">
       <a class="subgoal-edit__link" href="">Edit</a>
       <a class="subgoal-save__link" href="">Save</a>
+      <%= link_to "Save", goal_subgoal_path(s.goal_id, s.id, subgoal: { goal_id: s.goal_id, title: s.title } ), :method => 'patch' %>
     </div>
     <div class="subgoal-delete__container">
       <%= link_to "Delete", goal_subgoal_path(s.goal_id, s.id), :method => 'delete', :remote => true, :class => "what" %>

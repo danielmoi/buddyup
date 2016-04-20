@@ -21,11 +21,11 @@
 
   <fieldset>
     <%= f.label :amount, :class => 'label' %>
-    <%= f.number_field :amount, :class => 'input' %>
+    <%= f.number_field :amount, :class => 'input', :placeholder => 'Please pledge a minimum of $50' %>
   </fieldset>
 
-  <div class="btn-container" class="amount">
-    <%= f.submit :class => 'btn' %>
+  <div class="btn-container">
+    <%= f.submit :class => 'btn', :id => "amount" %>
   </div>
 
 <% end %>

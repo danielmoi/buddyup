@@ -26,7 +26,7 @@ class SubgoalsController < ApplicationController
 
   def create
     @goal = Goal.find params[:goal_id]
-    @subgoal = Subgoal.new subgoals_params
+    @subgoal = Subgoal.new subgoal_params
 
     if @subgoal.save
       @goal.subgoals << @subgoal
@@ -36,6 +36,13 @@ class SubgoalsController < ApplicationController
       render :json => {:status => 'borked'}
     end
 
+  end
+
+  def update
+    subgoal = Subgoal.find params[:id]
+    binding.pry
+    subgoal.update subgoal_params
+    render :nothing => true
   end
 
   def destroy
@@ -63,7 +70,7 @@ class SubgoalsController < ApplicationController
     @subgoals = Subgoal.all
   end
 
-  def subgoals_params
+  def subgoal_params
     params.require(:subgoal).permit(:title, :description, :completed, :goal_id, :created_at)
   end
 

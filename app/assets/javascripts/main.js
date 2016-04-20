@@ -27,14 +27,12 @@ $(document).ready(function() {
     });
   });
 
-  $('.amount').on('click', function(n){
-
-  });
 
   // Add newly created subgoals
   $('#new_subgoal').on('ajax:success', function (something, response) {
     $('#subgoals-list').prepend(response);
   });
+
 
   // Hide deleted subgoals
   $('.subgoal-delete__container').on('ajax:success', function(something, response) {
@@ -60,6 +58,15 @@ $(document).ready(function() {
     $(this).parent().parent().find('.subgoal-title__input').hide();
     $(this).parent().parent().find('.subgoal-title__text').show();
 
+  });
+
+  $('#amount').on('click', function(e){
+    console.log("hello from function");
+    if (parseInt($('#goal_amount').val()) < 50){
+      console.log("hello from if");
+    $(alert("Please pledge a minimum of $50"));
+    $(event.preventDefault());
+  }
   });
 
 
