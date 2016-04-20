@@ -45,13 +45,19 @@
   border-bottom: 1px solid $primary-light;
   margin: 0.5em 0;
   padding: 0.5em 0;
+  &:hover {
+    background: $primary-light;
+  }
 }
 .subgoal-checkbox__container {
   display: inline-block;
 }
+.checkbox.subgoal-checkbox__input {
+  display: none;
+}
 .subgoal-title__container {
   display: inline-block;
-  width: 50%;
+  width: 70%;
 }
 .subgoal-title__text {
   display: inline-block;
@@ -63,6 +69,7 @@
 
 .subgoal-edit__container {
   display: inline-block;
+  margin-right: 2em;
 }
 .subgoal-save__link {
   display: none;

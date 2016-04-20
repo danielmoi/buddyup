@@ -47,6 +47,10 @@ $(document).ready(function() {
 
     $(this).parent().parent().find('.subgoal-title__text').hide();
     $(this).parent().parent().find('.subgoal-title__input').show();
+
+    $(this).parent().parent().find('.subgoal-checkbox__display').hide();
+    $(this).parent().parent().find('.subgoal-checkbox__input').show();
+
   });
 
   // When "save" button for subgoal is clicked
@@ -58,6 +62,14 @@ $(document).ready(function() {
     $(this).parent().parent().find('.subgoal-title__input').hide();
     var newText = $(this).parent().parent().find('.subgoal-title__input').val();
     $(this).parent().parent().find('.subgoal-title__text').text(newText).show();
+
+    $(this).parent().parent().find('.subgoal-checkbox__input').hide();
+
+    var newCompleted = $(this).parent().parent().find('.subgoal-checkbox__input').is(':checked');
+
+    console.log(newCompleted);
+    $(this).parent().parent().find('.subgoal-checkbox__display').prop('checked', newCompleted);
+    $(this).parent().parent().find('.subgoal-checkbox__display').show();
 
   });
 

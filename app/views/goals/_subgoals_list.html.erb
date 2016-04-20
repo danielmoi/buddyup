@@ -1,25 +1,29 @@
 <% subgoals.each do |subgoal| %>
-<%= form_for ([goal, subgoal]), { remote: true } do |f| %>
-  <div class="subgoal-each__container">
-    <div class="subgoal-checkbox__container">
-      <input type="checkbox" <%= subgoal.completed ? "checked" : "" %> >
-    </div>
+<div class="subgoal-each__container">
+  <%= form_for ([goal, subgoal]), { remote: true } do |f| %>
+  <div class="subgoal-checkbox__container">
+    <input class="checkbox subgoal-checkbox__display" type="checkbox" <%= subgoal.completed ? "checked" : "" %> disabled>
 
-    <div class="subgoal-title__container">
-      <div class="subgoal-title__text"><%= subgoal.title %></div>
-      <!-- <input class="input subgoal-title__input" type="text" value="<%= subgoal.title %>"> -->
-      <%= f.text_field :title, :class => 'input subgoal-title__input' %>
-    </div>
-
-    <div class="subgoal-edit__container">
-      <a class="subgoal-edit__link" href="">Edit</a>
-
-      <%= f.submit "Save", :class => 'subgoal-save__link' %>
-    </div>
-<% end %>
-    <div class="subgoal-delete__container">
-      <%= link_to "Delete", goal_subgoal_path(subgoal.goal_id, subgoal.id), :method => 'delete', :remote => true, :class => "what" %>
-    </div>
+    <% magic = subgoal.completed ? "1" : "0" %>
+    <%= f.check_box :completed, { :class => 'checkbox subgoal-checkbox__input' } %>
 
   </div>
+
+  <div class="subgoal-title__container">
+    <div class="subgoal-title__text"><%= subgoal.title %></div>
+    <!-- <input class="input subgoal-title__input" type="text" value="<%= subgoal.title %>"> -->
+    <%= f.text_field :title, :class => 'input subgoal-title__input' %>
+  </div>
+
+  <div class="subgoal-edit__container">
+    <a class="subgoal-edit__link" href="">Edit</a>
+
+    <%= f.submit "Save", :class => 'subgoal-save__link' %>
+  </div>
+  <div class="subgoal-delete__container">
+    <%= link_to "Delete", goal_subgoal_path(subgoal.goal_id, subgoal.id), :method => 'delete', :remote => true, :class => "what" %>
+  </div>
+  <% end %>
+
+</div>
 <% end %>
