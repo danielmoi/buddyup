@@ -2,14 +2,10 @@ module GoalsHelper
 
   def goal_status(goal)
     if goal.achieved
-      status = 'Achieved'
+      status = "Congratulations, you've achieved your goal"
     else
-      status = 'In progress'
+      status = "In progress"
     end
-  end
-
-  def goal_achieved(goal)
-    
   end
 
 end

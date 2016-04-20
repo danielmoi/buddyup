@@ -30,9 +30,6 @@
       <% if g.achieved == false %>
         <h3><%= link_to g.title, g %></h3>
       <% end %>
-      <% if g.acceptor_id == nil %>
-        <%= link_to 'Delete', goal_path(g), :method => :delete , :class => 'link' %>
-      <% end %>
     <% end %>
       <h2>Achieved:</h2>
     <% @goals.each do |g| %>
