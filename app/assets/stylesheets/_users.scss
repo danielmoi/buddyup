@@ -44,6 +44,10 @@
 
 .user-each__goals-completed-link {
   line-height: 130%;
+
+  :hover {
+  color: $secondary;
+  }
 }
 
 
@@ -52,4 +56,5 @@
   margin-top: 5em;
   font-size: 23px;
   font-style: italic;
+  color: $primary;
 }
