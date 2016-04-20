@@ -36,12 +36,12 @@ class GoalsController < ApplicationController
     end
   end
 
-  # def achieved
-  #   @goal = Goal.find params[:id]
-  #   @goal.achieved = true
-  #   @goal.save
-  #   user_path(@current_user)
-  # end
+  def achieved
+    @goal = Goal.find params[:id]
+    @goal.achieved = true
+    @goal.save
+    redirect_to user_path(@current_user)
+  end
 
   def show
     @goal = Goal.find params[:id]
