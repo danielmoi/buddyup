@@ -1,5 +1,16 @@
 <div class="subgoal-each__container">
-  <p><%= @subgoal.title %></p>
-  <p><%= @subgoal.description %></p>
-  <p>Completed? <%= @subgoal.completed %></p>
+  <div class="subgoal-checkbox__container">
+    <input type="checkbox" <%= @subgoal.completed ? "checked" : "" %> >
+  </div>
+
+  <div class="subgoal__title"><%= @subgoal.title %></div>
+  <div class="subgoal__title"><input class="input" type="text" value="<%= @subgoal.title %>"></div>
+
+  <div class="subgoal-edit__container">
+    <a class="subgoal-edit__link" href="">Edit</a>
+    <a class="subgoal-save__link" href="">Save</a>
+  </div>
+  <div class="subgoal-delete__container">
+    <%= link_to "Delete", goal_subgoal_path(@subgoal.goal_id, @subgoal.id), :method => 'delete', :remote => true, :class => "what" %>
+  </div>
 </div>
