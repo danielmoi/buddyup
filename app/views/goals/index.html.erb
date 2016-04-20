@@ -22,7 +22,9 @@
   <%= render partial: 'categories_list', locals: { categories: @categories} %>
 </div>
 
+<div id="goals-filter">
 
+</div>
 <!-- End Categories -->
   <div class="btn-container">
     <!--  Conditional: only if user if logged in -->
@@ -39,6 +41,7 @@
 <% @goals.each do |goal| %>
   <div class="goal-each__container">
     <div class="goal-each__title">
+
       <p><%= link_to goal.title.titleize, goal_path(goal) %></p>
     </div>
     <div class="goal-each__initiator-name">
@@ -57,6 +60,7 @@
       <p class="goal-each__timestamp">
         Created on: <%= y %> (<%= x %> ago)
       </p>
+
     </div>
 
     <!--  Conditional: only if user if logged in -->

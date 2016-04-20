@@ -40,14 +40,21 @@ $(document).ready(function() {
     }
   });
 
-
-  // $('#amount').on('click', function(e){
-  //   console.log("hello from function");
-  //   if (parseInt($('#goal_amount').val()) < 50){
-  //     console.log("hello from if");
-  //   $(alert("Please pledge a minimum of $50"));
-  //   $(event.preventDefault());
-  // }
-  // });
+//   $('#cat').on('click', function(e){
+//     $(event.preventDefault());
+//
+//     if($('#cat').data('cat-id') === $('#goal_cat').data('goal_cat_id')){
+//       console.log("yippee!");
+//       $('#categories-list').append('cat_id');
+//
+//     // console.log($('cat').data('cat_id'));
+//     // $('#cat').on('ajax:success', function (something, response) {
+//     //   console.log('success');
+//     //   $('#categories-list').append(response);
+//     // });
+// }
+// $(event.preventDefault());
+//
+//   });
 
 });
