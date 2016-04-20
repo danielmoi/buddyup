@@ -1,5 +1,36 @@
+.user-each__container {
+  line-height: 150%;
+  text-align: center;
+  // margin: 0 auto;
+}
+
 .user-each__user-pic {
   border-radius: 50%;
   width: 60%;
   height: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.user-each__user-location {
+  margin-top: 0.6em;
+  font-size: 20px;
+}
+
+.user-each__user-bio {
+  margin-top: 0.6em;
+  font-size: 20px;
+}
+
+.goals__container {
+  line-height: 170%;
+  // text-align: center;
+  margin-top: 5em;
+}
+
+.quote-each__quote {
+  text-align: center;
+  margin-top: 5em;
+  font-size: 23px;
+  font-style: italic;
 }

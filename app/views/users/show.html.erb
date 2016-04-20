@@ -6,13 +6,13 @@
   <div class="user-each__user-pic">
     <%= image_tag(@user.image_url, :crop => :fill, :class => "user-each__user-pic") %>
   </div>
-  <div class="user-each__user-location">
-    Location:
-    <%= @user.city %>, <%= @user.country %>
-  </div>
   <div class="user-each__user-bio">
     About me:
     <%= @user.bio %>
+  </div>
+  <div class="user-each__user-location">
+    Location:
+    <%= @user.city %>, <%= @user.country %>
   </div>
 </div>
 
@@ -22,7 +22,7 @@
 
 <div class="goals__container">
   <div class="user-each__goals-title">
-    <h2>Goals</h2>
+    <h1 class="goals__title">Goals</h2>
   </div>
   <div class="user-each__goals-uncompleted">
     <h2>In progress:</h2>
@@ -30,13 +30,19 @@
       <% if g.achieved == false %>
         <h3><%= link_to g.title, g %></h3>
       <% end %>
+      <% if g.acceptor_id == nil %>
+        <%= link_to 'Delete', goal_path(g), :method => :delete , :class => 'link' %>
+      <% end %>
+    <% end %>
       <h2>Achieved:</h2>
+    <% @goals.each do |g| %>
       <% if g.achieved %>
         <h3><%= link_to g.title, g %></h3>
       <% end %>
     <% end %>
   </div>
 </div>
+
 
 <div class="quote__container">
   <div class="quote-each__quote">

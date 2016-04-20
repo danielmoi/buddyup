@@ -45,13 +45,19 @@ class GoalsController < ApplicationController
     @subgoals = @goal.subgoals
   end
 
+  def destroy
+    goal = Goal.find params[:id]
+    @user = User.all
+    goal.destroy
+    redirect_to goals_path
+  end
+
   def buddyup
     @goal = Goal.find params[:id]
     @goal.acceptor = @current_user # not <<
 
     @goal.save
     redirect_to goal_path
-
   end
 
   private
