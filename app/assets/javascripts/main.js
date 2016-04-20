@@ -34,9 +34,20 @@ $(document).ready(function() {
     console.log("hello from function");
     if (parseInt($('#goal_amount').val()) < 50){
       console.log("hello from if");
-    $(alert("Please pledge a minimum of $50"));
-    $(event.preventDefault());
-  }
+      $(event.preventDefault());
+      $('.modal__container').show();
+      $('.btn__buddy-up--confirm');
+    }
   });
+
+
+  // $('#amount').on('click', function(e){
+  //   console.log("hello from function");
+  //   if (parseInt($('#goal_amount').val()) < 50){
+  //     console.log("hello from if");
+  //   $(alert("Please pledge a minimum of $50"));
+  //   $(event.preventDefault());
+  // }
+  // });
 
 });

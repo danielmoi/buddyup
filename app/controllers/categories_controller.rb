@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :authorise, :only => [:index, :new]
+  before_action :authorise, :only => [:new]
 
   def index
     @categories = Category.all

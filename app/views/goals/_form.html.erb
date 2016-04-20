@@ -1,5 +1,17 @@
 <%= form_for @goal do |f| %>
 
+<div class="modal__container">
+  <div class="modal">
+    <h2 class="modal__title">Oh no!</h2>
+    <div class="modal__text">
+      <p>Please be sure to pledge a minimum of $50</p>
+    </div>
+    <div class="modal__buttons">
+      <%= link_to "Try Again", new_goal_path, :class => 'btn btn__buddy-up--cancel' %>
+    </div>
+  </div>
+</div>
+
   <fieldset>
     <%= f.label :title, :class => 'label' %>
     <%= f.text_field :title, :class => 'input' %>

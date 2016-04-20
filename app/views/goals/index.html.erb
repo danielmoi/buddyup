@@ -13,8 +13,17 @@
   </div>
 
 </div>
+<!-- Adding Categories -->
+<div class="goal-each__categories-title">
+  <h2>Categories</h2>
+</div>
+
+<div id="categories-list">
+  <%= render partial: 'categories_list', locals: { categories: @categories} %>
+</div>
 
 
+<!-- End Categories -->
   <div class="btn-container">
     <!--  Conditional: only if user if logged in -->
     <% if @current_user.present? %>
