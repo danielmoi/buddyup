@@ -52,8 +52,7 @@ class GoalsController < ApplicationController
 
   def destroy
     goal = Goal.find params[:id]
-    # goal.destroy
-    raise
+    goal.destroy
     redirect_to user_path(@current_user)
   end
 
