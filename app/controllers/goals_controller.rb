@@ -26,6 +26,12 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new goal_params
     @goal.initiator = @current_user
+    @amount = params[:amount]
+    # if @amount < 50
+    #   raise
+    #   flash[:error]='Please pledge $50 or more'
+    #   redirect_to login_path
+    # end
     if @goal.save
       @amount = params[:amount]
         redirect_to new_goal_order_path(@goal)
@@ -33,6 +39,7 @@ class GoalsController < ApplicationController
       render 'new'
     end
   end
+
   def show
     @goal = Goal.find params[:id]
     @messages = @goal.messages
