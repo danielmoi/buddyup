@@ -25,16 +25,18 @@
     <h1 class="goals__title">Goals</h2>
   </div>
   <div class="user-each__goals-uncompleted">
-    <h2>In progress:</h2>
+    <h3>In progress</h3>
     <% @goals.each do |g| %>
       <% if g.achieved == false %>
-        <h3><%= link_to g.title, g %></h3>
+        <p class="user-each__goals-uncompleted-link"><%= link_to g.title, g %></p>
       <% end %>
     <% end %>
-      <h2>Achieved:</h2>
+  </div>
+  <div class="user-each__goals-completed">
+    <h3>Achieved</h3>
     <% @goals.each do |g| %>
       <% if g.achieved %>
-        <h3><%= link_to g.title, g %></h3>
+        <h3 class="user-each__goals-complet-link"><%= link_to g.title, g %></h3>
       <% end %>
     <% end %>
   </div>

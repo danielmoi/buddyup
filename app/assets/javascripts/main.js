@@ -86,12 +86,16 @@ $(document).ready(function() {
 
 $('.goal-achieved__btn').on('click', function(e) {
   e.preventDefault();
-  $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
-  $('.goal-achieved__btn').hide;
-  // $.ajax({url: "14/achieved", type: "POST", success: function() {
-  //   $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
-  //   $('.goal-achieved__btn').hide;
-  // }});
+  goal_id = window.location.href.split("/").pop()
+  $.ajax({
+    url: goal_id+"/achieved",
+    type: "POST",
+    data: {id : goal_id},
+    success: function() {
+      $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
+      $('.goal-achieved__btn').hide;
+    }
+  });
 
 });
 

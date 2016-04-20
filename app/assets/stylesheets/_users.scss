@@ -28,6 +28,25 @@
   margin-top: 5em;
 }
 
+.goals__title {
+  margin: 1em 0;
+  border-bottom: 1px solid $secondary;
+  padding-bottom: 0.5em;
+}
+
+.user-each__goals-uncompleted-link {
+  line-height: 130%;
+
+  :hover {
+  color: $secondary;
+  }
+}
+
+.user-each__goals-completed-link {
+  line-height: 130%;
+}
+
+
 .quote-each__quote {
   text-align: center;
   margin-top: 5em;
