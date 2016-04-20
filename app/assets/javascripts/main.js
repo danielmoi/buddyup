@@ -26,6 +26,9 @@ $(document).ready(function() {
     });
   });
 
+  $('.amount').on('click', function(n){
+    
+  });
 
   $('#new_subgoal').on('ajax:success', function (something, response) {
     $('#subgoals-list').prepend(response);

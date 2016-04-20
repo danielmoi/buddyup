@@ -1,4 +1,4 @@
-<div class="container">
+<!--
   <%= form_tag goal_orders_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -7,19 +7,42 @@
     </div>
     <% end %>
     <label class="amount">
-      <h1 class='main__title'>Charity of the Month</h1>
-      <h2 class='main__title'>Badger Trust</h2>
-      <div class="main">
-        <p>Badger's are an animal close to our hearts here at Buddy Up and we are pleased to announce that the Badger Trust is our Charity of the month. Once your goal is achieved your $50 pledge will go towards caring for this wonderful animal. Thank you
-          from the BuddyUp team and the Badger Trust</p>
-        <div class="main__title">
           <span>Thank you for your pledge of $<%= @amount %></span>
         </label>
       </article>
-    </div>
-    <div class="main__title">
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Goal pledge" data-amount="$<%= @amount %>" data-locale="auto"></script>
-      <% end %>
-    </div>
-  </div>
+      <script src="https://checkout.stripe.com/checkout.js"
+              class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Goal pledge"
+              data-amount="$<%= @amount %>"
+              data-locale="auto"></script>
+      <% end %> -->
+<div class="container">
+<div class="main">
+<h1 class='main__title'>Charity of the Month</h1>
+<h2 class='main__title'>Badger Trust</h2>
+<p>Badgers are an animal close to our hearts here at Buddy Up and we are pleased to announce
+  that the Badger Trust is our Charity of the month. Once your goal is achieved your
+  $<%= sprintf("%.2f", @amount / 100.0) %> pledge will go towards caring for this wonderful animal.
+  Thank you from the BuddyUp team and the Badger Trust</p>
+</div>
+
+<%= form_tag goal_orders_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount $<%= sprintf("%.2f", @amount / 100.0)%></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Goal pledge"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
+<% end %>
 </div>
