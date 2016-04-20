@@ -25,31 +25,16 @@ class SubgoalsController < ApplicationController
   end
 
   def create
-    p '***********************'
     @goal = Goal.find params[:goal_id]
     @subgoal = Subgoal.new subgoals_params
 
     if @subgoal.save
+      @goal.subgoals << @subgoal
+      # by default, Rails expects to ouput a template to the view; since we just want to update data, we stop that default behaviour by :layout => false
       render :magic, :layout => false
     else
       render :json => {:status => 'borked'}
     end
-
-    # respond_to do |format|
-    #   if @subgoal.save
-    #     @goal.subgoals << @subgoal
-    #
-    #     format.html { redirect_to @subgoal, notice: 'Subgoal was successfully created.' }
-    #
-    #     format.js   { render :magic }  # magic.js.erb
-    #
-    #     format.json { render json: @subgoal, status: :created, location: @subgoal }
-    #
-    #   else
-    #     format.html { render action: "new" }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
 
   end
 

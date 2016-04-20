@@ -58,7 +58,7 @@
       </fieldset>
       <fieldset>
         <%= f.label :completed, "Completed?", :class => 'label' %>
-        <%= f.check_box :completed, :class => 'input' %>
+        <%= f.check_box :completed, :class => 'input', :id => 'done' %>
       </fieldset>
       <div class="btn-container">
         <%= f.submit "Create Subgoal", :class => 'btn' %>
