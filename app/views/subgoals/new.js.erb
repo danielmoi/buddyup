@@ -1,0 +1,9 @@
+// This is the ERB template that generates JS (instead of the HTML that we're used to)
+
+// Set the HTML inside #subgoal-form to be the rendered form
+// 'j' is syntactic sugar for <%= escape_javascript ( render 'form' ) %>
+// this tells Rails to read 'render 'form' as ERB, instead of JS
+$('#subgoal-form').html("<%= j (render 'form') %>");
+
+// jQuery animation for entry (350 ms)
+$('#subgoal-form').slideDown(350);

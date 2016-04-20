@@ -37,6 +37,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find params[:id]
+    @subgoal = Subgoal.new
     @messages = @goal.messages
     @subgoals = @goal.subgoals
   end
@@ -49,11 +50,12 @@ class GoalsController < ApplicationController
   end
 
   def buddyup
-    @goal = Goal.find params[:id]
+    @goal = Goal.find params[:goal_id]
     @goal.acceptor = @current_user # not <<
 
     @goal.save
-    redirect_to goal_path
+    redirect_to goal_path params[:goal_id]
+
   end
 
   private

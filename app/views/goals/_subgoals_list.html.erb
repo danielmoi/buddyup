@@ -1,0 +1,11 @@
+<% subgoals.each do |s| %>
+<div class="subgoal-each__container">
+  <input type="checkbox" <%= s.completed ? "checked" : "" %> >
+  <span class="subgoal__title"><%= s.title %></span>
+  <span class="subgoal__description">(<%= s.description %>)</span>
+
+  <a href="">Edit</a>
+  <a href="">Delete</a>
+
+</div>
+<% end %>

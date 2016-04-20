@@ -35,4 +35,8 @@ $(document).ready(function() {
    }
    });
 
+  $('#new_subgoal').on('ajax:success', function (something, response) {
+    $('#subgoals-list').prepend(response);
+  });
+
 });
