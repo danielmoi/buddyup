@@ -51,12 +51,13 @@ $(document).ready(function() {
 
   // When "save" button for subgoal is clicked
   $('.subgoal-save__link').on('click', function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     $(this).hide();
     $(this).siblings('.subgoal-edit__link').show();
 
     $(this).parent().parent().find('.subgoal-title__input').hide();
-    $(this).parent().parent().find('.subgoal-title__text').show();
+    var newText = $(this).parent().parent().find('.subgoal-title__input').val();
+    $(this).parent().parent().find('.subgoal-title__text').text(newText).show();
 
   });
 

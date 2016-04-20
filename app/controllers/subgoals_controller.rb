@@ -40,7 +40,6 @@ class SubgoalsController < ApplicationController
 
   def update
     subgoal = Subgoal.find params[:id]
-    binding.pry
     subgoal.update subgoal_params
     render :nothing => true
   end
