@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('.subgoal-title__input').hide();
 
   $('.menu-toggle__container').on('click', function(e) {
     console.log('click');
@@ -30,12 +31,35 @@ $(document).ready(function() {
 
   });
 
+  // Add newly created subgoals
   $('#new_subgoal').on('ajax:success', function (something, response) {
     $('#subgoals-list').prepend(response);
   });
 
+  // Hide deleted subgoals
   $('.subgoal-delete__container').on('ajax:success', function(something, response) {
     $(this).parent().hide();
+  });
+
+  // When "edit" button for subgoal is clicked
+  $('.subgoal-edit__link').on('click', function(event) {
+    event.preventDefault();
+    $(this).hide();
+    $(this).siblings('.subgoal-save__link').show();
+
+    $(this).parent().parent().find('.subgoal-title__text').hide();
+    $(this).parent().parent().find('.subgoal-title__input').show();
+  });
+
+  // When "save" button for subgoal is clicked
+  $('.subgoal-save__link').on('click', function(event) {
+    event.preventDefault();
+    $(this).hide();
+    $(this).siblings('.subgoal-edit__link').show();
+
+    $(this).parent().parent().find('.subgoal-title__input').hide();
+    $(this).parent().parent().find('.subgoal-title__text').show();
+
   });
 
 

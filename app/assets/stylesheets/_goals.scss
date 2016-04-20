@@ -49,13 +49,23 @@
 .subgoal-checkbox__container {
   display: inline-block;
 }
-.subgoal__title {
+.subgoal-title__container {
   display: inline-block;
   width: 50%;
+}
+.subgoal-title__text {
+  display: inline-block;
+}
+
+.subgoal-title__input {
+  display: none;
 }
 
 .subgoal-edit__container {
   display: inline-block;
+}
+.subgoal-save__link {
+  display: none;
 }
 .subgoal-delete__container {
   display: inline-block;

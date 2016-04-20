@@ -4,8 +4,10 @@
       <input type="checkbox" <%= s.completed ? "checked" : "" %> >
     </div>
 
-    <div class="subgoal__title"><%= s.title %></div>
-    <div class="subgoal__title"><input class="input" type="text" value="<%= s.title %>"></div>
+    <div class="subgoal-title__container">
+      <div class="subgoal-title__text"><%= s.title %></div>
+      <input class="input subgoal-title__input" type="text" value="<%= s.title %>">
+    </div>
 
     <div class="subgoal-edit__container">
       <a class="subgoal-edit__link" href="">Edit</a>
