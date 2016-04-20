@@ -1,0 +1,8 @@
+<!--  we pass the remote: true option... so we will execute an ajax POST request -->
+<%= form_for ([@goal, @subgoal]), { remote: true } do |f| %>
+
+  <%= f.text_field :title %>
+  <%= f.text_field :description %>
+  <%= f.check_box :completed %>
+  <%= f.submit %>
+<% end %>

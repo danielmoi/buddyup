@@ -39,6 +39,7 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.find params[:id]
     @messages = @goal.messages
+    @subgoals = @goal.subgoals
   end
 
   def buddyup

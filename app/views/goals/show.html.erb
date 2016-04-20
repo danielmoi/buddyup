@@ -39,6 +39,22 @@
   </div>
 
 </div>
+
+<div id="subgoals__tutorial">
+  <h2>Subgoals tutorial</h2>
+  <!--  When we use do/end with link_to, we remove the String "New subgoal"-->
+  <%= link_to new_goal_subgoal_path(@goal.id), remote: true do %>
+    <button class="btn">New Subgoal</button>
+  <% end %>
+
+  <div id="subgoal-form"></div>
+
+  <div id="subgoals">
+    <%= render @subgoals %>
+  </div>
+
+</div>
+
 <div class="subgoals__container">
   <div class="goal-each__subgoals-title">
     <h2>Subgoals</h2>
