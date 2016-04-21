@@ -5,7 +5,8 @@ app.MessageFormView = Backbone.View.extend({
   el: '#magic-form',
 
   events: {
-    'click button': 'createMessage'
+    'click button': 'createMessage',
+    'keypress input': 'checkForEnter'
   },
 
   render: function() {
@@ -29,10 +30,18 @@ app.MessageFormView = Backbone.View.extend({
       app.messages.fetch();
     });
 
-
     this.$el.find('.message-new-subject').val('');
     this.$el.find('.message-new-content').val('');
 
+  },
 
+  checkForEnter: function(event) {
+
+    app.ENTER_KEY = 13;
+
+    if (event.which === app.ENTER_KEY) {
+      event.preventDefault(); // stop 'newline' being added to input
+      this.createMessage();
+    }
   }
 });
