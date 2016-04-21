@@ -1,4 +1,6 @@
 // 3. TYPOGRAPHY
+@import url(https://fonts.googleapis.com/css?family=Poiret+One|Questrial|Gudea);
+
 * {
   font-family: Helvetica, sans-serif;
   color: $text;
@@ -8,6 +10,8 @@ h1 {
   margin: 0.67em 0;
 }
 
-p {
+p, div {
+  font-family: 'Questrial', sans-serif;
+  line-height: 130%;
   margin: 1em 0;
 }
