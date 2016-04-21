@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def update
     @user = @current_user
-    
+
 
     if @user.update user_params
       if user_params[:image_url]
@@ -57,6 +57,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+raise
 
     if user_params[:image_url]
       req = Cloudinary::Uploader.upload user_params[:image_url]
