@@ -115,7 +115,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.goal-achieved__btn').on('click', function(e) {
+  $('.btn__goal-achieved').on('click', function(e) {
     e.preventDefault();
     goal_id = window.location.href.split("/").pop()
     $.ajax({
@@ -124,7 +124,7 @@ $(document).ready(function() {
       data: {id : goal_id},
       success: function() {
         $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
-        $('.goal-achieved__btn').hide;
+        $('.btn__goal-achieved').hide();
       }
     });
   });

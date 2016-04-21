@@ -18,7 +18,6 @@
 class User < ActiveRecord::Base
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 4 }
 
   validates :email, :presence => true, :uniqueness => true
   # ^^ can't enter password without email address, must be unique
