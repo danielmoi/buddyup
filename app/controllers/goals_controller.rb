@@ -107,7 +107,7 @@ include ActionView::Helpers::DateHelper
     @goal.acceptor = @current_user # not <<
 
     @goal.save
-    redirect_to goal_path params[:goal_id]
+    redirect_to new_goal_order_path params[:goal_id]
 
   end
 
