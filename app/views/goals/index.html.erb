@@ -13,7 +13,6 @@
       cache: false,
       success: function (data) {
         goalList = data;
-        console.log(goalList);
         _.each(data, function (goal) {
           $('#all_goals').append(template(goal))
         });
@@ -40,9 +39,9 @@
             var cat = +e.target.getAttribute("cat_id");
             // console.log(cat);
             filterGoals = _.filter(goalList, function (goal) {
+                          console.log(goal.acceptor_id);
               for (var i = 0; i < goal.categories.length; i++) {
-                // console.log(cat, goal.categories[i].id)
-                if (cat === goal.categories[i].id) {
+                if ((cat === goal.categories[i].id)){
                   return true;
                 }
               }

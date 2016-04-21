@@ -17,7 +17,9 @@ $(document).ready(function() {
 
   window.setInterval(function() {
     app.messages.fetch();
-  }, 4000);
+  },
+40000000000000
+);
 
   app.router = new app.AppRouter();
   Backbone.history.start();

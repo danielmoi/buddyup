@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = @current_user #User.find params[:id]
     @goals = @user.goals_initiated || @user.goals_accepted
   end
 
@@ -33,14 +33,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = @current_user
+    @user = @current_user #User.find(params[:id])
+    #raise
     # @user = User.find params[:id]
   end
 
   def update
     @user = @current_user
-    
-
     if @user.update user_params
       if user_params[:image_url]
         req = Cloudinary::Uploader.upload user_params[:image_url]
@@ -56,16 +55,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params_create)
 
     if user_params[:image_url]
       req = Cloudinary::Uploader.upload user_params[:image_url]
       @user.image_url = req["url"]
     end
-
     if @user.save
-      redirect_to user_path
+      session[:user_id] = @user.id
+      redirect_to @user
     else
+      puts @user.errors
       render 'new'
     end
   end
@@ -77,8 +77,13 @@ class UsersController < ApplicationController
   end
 
   private
+  def user_params_create
+    params.require(:user)
+          .permit(:name, :email, :country, :city, :bio, :image_url, :password, :password_confirmation)
+  end
+
   def user_params
-    params.require(:user).permit(:name, :country, :city, :bio, :email, :password_digest, :image_url)
+    params.require(:user).permit(:name, :country, :city, :bio, :email, :password, :password_confirmation, :image_url)
   end
 
   def authorise
