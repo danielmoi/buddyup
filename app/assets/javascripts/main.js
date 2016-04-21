@@ -51,7 +51,9 @@ $(document).ready(function() {
 
   // Add newly created subgoals
   $('#new_subgoal').on('ajax:success', function (something, response) {
+    // #subgoals-list is the Rails-generated name
     $('#subgoals-list').prepend(response);
+    $('.subgoal-input').val('');
   });
 
   // Hide deleted subgoals
