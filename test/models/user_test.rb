@@ -10,7 +10,7 @@
 #  bio             :text
 #  country         :string
 #  city            :string
-#  admin           :boolean          default("false")
+#  admin           :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
