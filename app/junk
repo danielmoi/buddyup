@@ -1,0 +1,38 @@
+
+<% @goals.each do |goal| %>
+  <div class="goal-each__container">
+    <div class="goal-each__title">
+
+      <p><%= link_to goal.title.titleize, goal_path(goal) %></p>
+    </div>
+    <div class="goal-each__initiator-name">
+      Created by: <%= goal.initiator.name if goal.initiator.present? %>
+      <a href="" class="goal-each__more-info">more info <i class="fa fa-caret-down"></i></a>
+    </div>
+    <div class="goal-each__initiator-country">
+      Country: <%= goal.initiator.country.upcase if goal.initiator.present? %>
+    </div>
+    <div class="goal-each__goal-description">
+      <%= goal.description if goal.description.present? %>
+    </div>
+    <div class="goal-each__created-date">
+      <% x = distance_of_time_in_words_to_now(goal.created_at) %>
+      <% y = time_tag(goal.created_at) %>
+      <p class="goal-each__timestamp">
+        Created on: <%= y %> (<%= x %> ago)
+      </p>
+
+    </div>
+
+    <!--  Conditional: only if user if logged in -->
+    <% if @current_user.present? %>
+    <div class="goal-buddy-up__container">
+      <%= link_to "BuddyUP", "/", {:goal_id => goal.id, :initiator => goal.initiator.name, :goal => goal.title.titleize, :class => 'btn btn__buddy-up--before' } %>
+    </div>
+    <% end %>
+    <!--  end conditional -->
+
+
+  </div>
+
+<% end %>

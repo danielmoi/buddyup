@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
   // Add newly created subgoals
-  $('#new_subgoal').on('ajax:success', function (something, response) {
+  $('#new_subgoal').on('ajax:success', function(something, response) {
     $('#subgoals-list').prepend(response);
   });
 
@@ -73,9 +73,9 @@ $(document).ready(function() {
 
   });
 
-  $('#amount').on('click', function(e){
+  $('#amount').on('click', function(e) {
     console.log("hello from function");
-    if (parseInt($('#goal_amount').val()) < 50){
+    if (parseInt($('#goal_amount').val()) < 50) {
       console.log("hello from if");
       $(event.preventDefault());
       $('.modal__container').show();
@@ -84,21 +84,22 @@ $(document).ready(function() {
   });
 
 
-$('.goal-achieved__btn').on('click', function(e) {
-  e.preventDefault();
-  goal_id = window.location.href.split("/").pop()
-  $.ajax({
-    url: goal_id+"/achieved",
-    type: "POST",
-    data: {id : goal_id},
-    success: function() {
-      $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
-      $('.goal-achieved__btn').hide;
-    }
+  $('.goal-achieved__btn').on('click', function(e) {
+    e.preventDefault();
+    goal_id = window.location.href.split("/").pop();
+    $.ajax({
+      url: goal_id + "/achieved",
+      type: "POST",
+      data: {
+        id: goal_id
+      },
+      success: function() {
+        $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
+        $('.goal-achieved__btn').hide;
+      }
+    });
   });
-
 });
-
 
 //   $('#cat').on('click', function(e){
 //     $(event.preventDefault());
@@ -112,5 +113,3 @@ $('.goal-achieved__btn').on('click', function(e) {
 // $(event.preventDefault());
 //
 //   });
-
-});

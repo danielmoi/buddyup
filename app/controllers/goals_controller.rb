@@ -18,6 +18,10 @@ class GoalsController < ApplicationController
     else
       @goals = Goal.all
     end
+    respond_to do |format|
+      format.html { }
+      format.json { render json: @goals.to_json(:include => [:categories, :initiator]) }
+    end
   end
 
   def new
