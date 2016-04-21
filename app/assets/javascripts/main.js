@@ -92,6 +92,18 @@ $(document).ready(function() {
 
   });
 
+  // Toggle Subgoals Section
+  $('.subgoals__toggle').on('click', function() {
+    $('#subgoals-list').toggle();
+    $('.subgoals__toggle-icon').toggleClass('fa-arrow-down');
+  });
+
+  // Toggle Messages Section
+  $('.messages__toggle').on('click', function() {
+    $('#magic-messages').toggle();
+    $('.messages__toggle-icon').toggleClass('fa-arrow-down');
+  });
+
   $('#amount').on('click', function(e){
     console.log("hello from function");
     if (parseInt($('#goal_amount').val()) < 50){

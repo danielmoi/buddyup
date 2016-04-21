@@ -50,10 +50,12 @@
   height: 30px;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 2em;
+  font-size: 1em;
+  cursor: pointer;
   .fa {
     vertical-align: top;
     color: $primary;
+    line-height: 30px;
   }
 }
 
