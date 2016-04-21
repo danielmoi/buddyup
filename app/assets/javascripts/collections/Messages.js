@@ -11,6 +11,7 @@ app.Messages = Backbone.Collection.extend({
 
   initialize: function() {
     this.on('add', function(message) {
+      // console.log('Add event triggered in Collection');
       var messageView = new app.MessageView({ model: message });
       messageView.render();
     });
