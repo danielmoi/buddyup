@@ -50,8 +50,10 @@
 
 </div>
 
-<div id="subgoals__container">
-  <h2>Subgoals</h2>
+<div id="subgoals__container" class="subgoals__container">
+  <div class="subgoals__title">
+    <h2>Subgoals</h2>
+  </div>
 
 
   <div id="subgoal-form">
@@ -70,6 +72,10 @@
 
   </div>
 
+  <div class="subgoals__toggle">
+    <i class="fa fa-caret-up"></i>
+  </div>
+
   <div id="subgoals-list">
     <%= render partial: 'subgoals_list', locals: { subgoals: @subgoals, goal: @goal } %>
   </div>
@@ -82,9 +88,14 @@
 
 <script id="appViewTemplate" type="text/template">
   <div class="goal-each__messages-title">
-    <h2>Messages</h2>
+    <div class="messages__title">
+      <h2>Messages</h2>
+    </div>
   </div>
   <div id="magic-form"></div>
+  <div class="messages__toggle">
+    <i class="fa fa-caret-up"></i>
+  </div>
   <div id="magic-messages"></div>
 </script>
 

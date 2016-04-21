@@ -30,12 +30,33 @@
 .goal-each__messages-title {
 }
 
+
+// SUBGOALS STUFF
+
 .subgoals__container {
-  display: none;
+  margin: 20px 0;
+  border-top: 3px solid $secondary;
+  border-bottom: 3px solid $secondary;
+  padding: 2em 0;
+}
+.subgoals__title {
+  text-align: center;
+}
+
+.subgoals__toggle,
+.messages__toggle {
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
-  padding: 1em 0;
+  height: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2em;
+  .fa {
+    vertical-align: top;
+    color: $primary;
+  }
 }
+
 .goal-edit__container {
   text-align: center;
   color: $primary;
