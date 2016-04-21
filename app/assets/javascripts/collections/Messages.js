@@ -10,6 +10,10 @@ app.Messages = Backbone.Collection.extend({
   model: app.Message,
 
   initialize: function() {
+    this.on('add', function(message) {
+      var messageView = new app.MessageView({ model: message });
+      messageView.render();
+    });
 
   }
 });

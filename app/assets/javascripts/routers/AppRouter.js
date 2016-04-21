@@ -8,8 +8,5 @@ app.AppRouter = Backbone.Router.extend({
     console.log('YESSSSS');
     var appView = new app.AppView();
     appView.render();
-  },
-  messageMagic: function() {
-    console.log('WHAT');
   }
 });

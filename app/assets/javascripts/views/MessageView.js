@@ -5,6 +5,7 @@ app.MessageView = Backbone.View.extend({
 
   render: function() {
     var subject = this.model.get('subject');
+    console.log('SDFLKJ');
     this.$el.text( subject );
     this.$el.prependTo('#magic-messages');
   }

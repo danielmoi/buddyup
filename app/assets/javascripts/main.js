@@ -3,8 +3,13 @@ var app = app || {};
 $(document).ready(function() {
 
   // Backbone
+  app.messages = new app.Messages();
+  app.messages.fetch();
+
   app.router = new app.AppRouter();
   Backbone.history.start();
+
+
 
 
 
