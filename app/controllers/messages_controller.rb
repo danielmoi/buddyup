@@ -22,7 +22,17 @@ class MessagesController < ApplicationController
   def index
     @goal = Goal.find params[:goal_id]
     @messages = @goal.messages
+
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @messages.to_json
+      }
+    end
+
   end
+
+
 
   def create
     @goal = Goal.find params[:goal_id]

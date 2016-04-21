@@ -26,8 +26,6 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @category =
-    @categories = Category.all
     if @current_user.present?
       @goals = Goal.where(:acceptor_id => nil) - Goal.where(:initiator_id => @current_user.id) - Goal.where(:initiator_id => nil)
     else
@@ -44,7 +42,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new goal_params
     @goal.initiator = @current_user
     @error_amount = @goal[:amount]
-    
+
     if @goal.save
       redirect_to new_goal_order_path(@goal)
     else
@@ -52,24 +50,29 @@ class GoalsController < ApplicationController
     end
   end
 
-  def achieved
-    @goal = Goal.find params[:id]
-    @goal.achieved = true
-    @goal.save
-    redirect_to user_path(@current_user)
-  end
-
   def show
     @goal = Goal.find params[:id]
     @subgoal = Subgoal.new
     @messages = @goal.messages
     @subgoals = @goal.subgoals
+
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @goal.to_json
+      }
+    end
+
   end
 
   def destroy
     goal = Goal.find params[:id]
+
+    @user = User.all
+
     goal.destroy
     redirect_to user_path(@current_user)
+
   end
 
   def buddyup

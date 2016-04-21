@@ -1,13 +1,28 @@
+var app = app || {};
+
 $(document).ready(function() {
 
-    $(".goal-form").on("submit", function(e) {
-      if ($('input:checked').length < 1) {
-         e.preventDefault();
-         console.log("none checked");
-         $("#errorMessage").prepend("Please select at least one category");
-      }
-    });
+// Create goal checkbox validation added
+  $(".goal-form").on("submit", function(e) {
+    if ($('input:checked').length < 1) {
+       e.preventDefault();
+       console.log("none checked");
+       $("#errorMessage").prepend("Please select at least one category");
+    }
+  });
 
+  // Backbone
+  app.messages = new app.Messages();
+  app.messages.fetch();
+
+  window.setInterval(function() {
+    app.messages.fetch();
+  }, 4000);
+
+  app.router = new app.AppRouter();
+  Backbone.history.start();
+
+  // Rest of App
   $('.subgoal-title__input').hide();
 
   $('.menu-toggle__container').on('click', function(e) {
@@ -34,12 +49,10 @@ $(document).ready(function() {
     });
   });
 
-
   // Add newly created subgoals
   $('#new_subgoal').on('ajax:success', function (something, response) {
     $('#subgoals-list').prepend(response);
   });
-
 
   // Hide deleted subgoals
   $('.subgoal-delete__container').on('ajax:success', function(something, response) {
@@ -80,6 +93,18 @@ $(document).ready(function() {
 
   });
 
+  // Toggle Subgoals Section
+  $('.subgoals__toggle').on('click', function() {
+    $('#subgoals-list').toggle();
+    $('.subgoals__toggle-icon').toggleClass('fa-arrow-down');
+  });
+
+  // Toggle Messages Section
+  $('.messages__toggle').on('click', function() {
+    $('#magic-messages').toggle();
+    $('.messages__toggle-icon').toggleClass('fa-arrow-down');
+  });
+
   $('#amount').on('click', function(e){
     console.log("hello from function");
     if (parseInt($('#goal_amount').val()) < 50){
@@ -90,34 +115,18 @@ $(document).ready(function() {
     }
   });
 
-
-$('.goal-achieved__btn').on('click', function(e) {
-  e.preventDefault();
-  goal_id = window.location.href.split("/").pop()
-  $.ajax({
-    url: goal_id+"/achieved",
-    type: "POST",
-    data: {id : goal_id},
-    success: function() {
-      $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
-      $('.goal-achieved__btn').hide;
-    }
+  $('.goal-achieved__btn').on('click', function(e) {
+    e.preventDefault();
+    goal_id = window.location.href.split("/").pop()
+    $.ajax({
+      url: goal_id+"/achieved",
+      type: "POST",
+      data: {id : goal_id},
+      success: function() {
+        $('.goal-show__goal-status').text("Status: Congratulations, you've achieved your goal");
+        $('.goal-achieved__btn').hide;
+      }
+    });
   });
-
-});
-
-
-//   $('#cat').on('click', function(e){
-//     $(event.preventDefault());
-//
-//     if($('#cat').data('cat-id') === $('#goal_cat').data('goal_cat_id')){
-//       console.log("yippee!");
-//       $('#categories-list').append('cat_id');
-//
-//     // console.log($('cat').data('cat_id'));
-// }
-// $(event.preventDefault());
-//
-//   });
 
 });
