@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+    $(".goal-form").on("submit", function(e) {
+      if ($('input:checked').length < 1) {
+         e.preventDefault();
+         console.log("none checked");
+         $("#errorMessage").prepend("Please select at least one category");
+      }
+    });
+
   $('.subgoal-title__input').hide();
 
   $('.menu-toggle__container').on('click', function(e) {
@@ -13,8 +22,6 @@ $(document).ready(function() {
     $(this).parent().parent().find('.goal-each__initiator-country').toggle();
     $(this).parent().parent().find('.goal-each__goal-description').toggle();
   });
-
-
 
   $('.btn__buddy-up--before').on('click', function(e) {
     e.preventDefault();

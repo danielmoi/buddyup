@@ -1,4 +1,4 @@
-<%= form_for @goal do |f| %>
+<%= form_for @goal, :html => { :class => 'goal-form' } do |f| %>
 
 <div class="modal__container">
   <div class="modal">
@@ -22,16 +22,16 @@
     <%= f.text_field :description, :class => 'input' %>
   </fieldset>
 
-  <fieldset>
+  <fieldset id="category__checkbox">
     <%= f.label :category_id, :class => 'label' %>
     <%= f.collection_check_boxes :category_ids, @categories, :id, :title do |c| %>
       <%= c.check_box( :class => 'checkbox' ) %>
       <%= c.label %>
     <% end %>
-
+    <div id="errorMessage"></div>
   </fieldset>
 
-  <fieldset>
+  <fieldset id="category__amount">
     <%= f.label :amount, :class => 'label' %>
     <%= f.number_field :amount, :class => 'input', :placeholder => 'Please pledge a minimum of $50' %>
   </fieldset>

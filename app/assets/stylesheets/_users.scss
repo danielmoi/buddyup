@@ -8,8 +8,10 @@
   border-radius: 50%;
   width: 60%;
   height: auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
 }
 
 .user-each__user-location {
@@ -49,7 +51,6 @@
   color: $secondary;
   }
 }
-
 
 .quote-each__quote {
   text-align: center;
