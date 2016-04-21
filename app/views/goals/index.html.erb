@@ -91,7 +91,7 @@
     <% if @current_user.present? %>
     <div class="goal-buddy-up__container">
 
-      <a goal_id="{{= id }}" initiator="{{= initiator.name }}" goal="{{= title }}" href="/goals/{{= id}}" class="btn btn__buddy-up--before">Buddy Up</a>
+      <a goal_id="{{= id }}" initiator="{{= initiator.name }}" goal="{{= title }}" href="/goals/{{= id}}/orders/new" class="btn btn__buddy-up--before">Buddy Up</a>
       <!-- link_to "BuddyUP", "/", {:goal_id => goal.id, :initiator => goal.initiator.name, :goal => goal.title.titleize, :class => 'btn btn__buddy-up--before' }  -->
     </div>
     <!--  end conditional -->
@@ -115,7 +115,7 @@
     </div>
     <div class="modal__buttons">
       <%= link_to "BuddyUP", "", {:class => 'btn btn__buddy-up--confirm', :method => 'POST' } %>
-      <%= link_to "Cancel", goals_path, :class => 'btn btn__buddy-up--cancel' %>
+      <%= link_to "Cancel", "", :class => 'btn btn__buddy-up--cancel' %>
     </div>
   </div>
 
