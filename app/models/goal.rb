@@ -19,5 +19,9 @@ class Goal < ActiveRecord::Base
   has_many :subgoals, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :messages, dependent: :destroy
-
+    attr_accessor :created_date_formatted, :created_date_ago, :this_is_the_date
+    def attributes
+      #super.merge('this_is_the_date' => self.this_is_the_date )
+      super.merge('created_date_ago' => self.created_date_ago)
+    end
 end

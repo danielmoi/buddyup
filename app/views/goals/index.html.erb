@@ -1,65 +1,102 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+    _.templateSettings = {
+      interpolate: /\{\{\=(.+?)\}\}/g,
+      evaluate: /\{\{(.+?)\}\}/g
+    };
+    var template = _.template($("#goals_list").html());
+    var goalList;
+    var filterGoals;
+    $.ajax({
+      url: "/goals",
+      dataType: "json",
+      cache: false,
+      success: function (data) {
+        goalList = data;
+        console.log(goalList);
+        _.each(data, function (goal) {
+          $('#all_goals').append(template(goal))
+        });
+        $('.goal-each__more-info').on('click', function (e) {
+          console.log($(this).parent().parent());
+          e.preventDefault();
+          $(this).parent().parent().find('.goal-each__initiator-country').toggle();
+          $(this).parent().parent().find('.goal-each__goal-description').toggle();
+        });
+        $('.btn__buddy-up--before').on('click', function (e) {
+          e.preventDefault();
+          console.log('clicked');
+          $('.modal__container').show();
+          $('.modal-goal').text($(this).attr('goal'));
+          $('.modal-initiator').text($(this).attr('initiator'));
+          $('.btn__buddy-up--confirm').attr({
+            href: "/goals/" + $(this).attr('goal_id') + "/buddyup"
+          });
+        });
 
-<script type = "text/javascript">
-$(document).ready(function(){
-  _.templateSettings = {
-    interpolate: /\{\{\=(.+?)\}\}/g,
-    evaluate: /\{\{(.+?)\}\}/g
-};
-var template = _.template(
-  $( "#goals_list").html()
-);
-$.ajax({
-  url: "/goals",
-  dataType: "json",
-  cache: false,
-  success: function(data){
-    _.each(data, function(goal){
-      console.log(goal)
-        $('#all_goals').append(template( goal ))
-    })
-  }
-});
+        $('.category_btn').on('click', function (e) {
+            e.preventDefault();
+            // console.log(goalList[goalList.length-1]); var cat = [{id: +e.target.getAttribute("cat_id") }]
+            var cat = +e.target.getAttribute("cat_id");
+            // console.log(cat);
+            filterGoals = _.filter(goalList, function (goal) {
+              for (var i = 0; i < goal.categories.length; i++) {
+                // console.log(cat, goal.categories[i].id)
+                if (cat === goal.categories[i].id) {
+                  return true;
+                }
+              }
+            }); //closes filter
+
+          $("#all_goals").html("");
+          console.log(filterGoals);
+          _.each(filterGoals, function (goal) {
+            console.log($('#all_goals').html());
+            $('#all_goals').append(template(goal));
+          });//closes each
+          // console.log(goal.categories, cat, _.intersection(goal.categories, cat )); return _.intersection(goal.categories, cat ).length > 0; e.target.getAttribute("cat_id"));
+        }); //closes button function
+      } //close success
+  });
 });
 </script>
 <script type="text/template" id="goals_list">
-    <div class="goal-each__container">
-      <div class="goal-each__title">
+  <div class="goal-each__container">
+    <div class="goal-each__title">
 
       <!-- <p> link_to goal.title.titleize, goal_path(goal)</p> -->
-        <p>{{= title }}</p>
-      </div>
-      <div class="goal-each__initiator-name">
-      Created by: {{= initiator.name }}
-        <a href="" class="goal-each__more-info">more info <i class="fa fa-caret-down"></i></a>
-      </div>
-      <div class="goal-each__initiator-country">
-        Country: {{= initiator.country }}
-      <!-- Country:  goal.initiator.country.upcase if goal.initiator.present?  -->
-      </div>
-      <div class="goal-each__goal-description">
-        {{= description }}
-      <!--  goal.description if goal.description.present? -->
-      </div>
-      <!-- <div class="goal-each__created-date">
-      x = distance_of_time_in_words_to_now(goal.created_at)
-      y = time_tag(goal.created_at)
-        <p class="goal-each__timestamp">
-          Created on:  y  ( x  ago)
-        </p>
-
-      </div> -->
-
-      <!--  Conditional: only if user if logged in -->
-      <% if @current_user.present? %>
-      <div class="goal-buddy-up__container">
-
-        <a href="/goals/{{= id}}" class ="btn btn__buddy-up--before">Buddy Up</a>
-         <!-- link_to "BuddyUP", "/", {:goal_id => goal.id, :initiator => goal.initiator.name, :goal => goal.title.titleize, :class => 'btn btn__buddy-up--before' }  -->
-      </div>
-      <!--  end conditional -->
-
-
+      <p>{{= title }}</p>
     </div>
+    <div class="goal-each__initiator-name">
+      Created by:
+      {{= initiator.name }}
+      <a href="" class="goal-each__more-info">more info
+        <i class="fa fa-caret-down"></i>
+      </a>
+    </div>
+    <div class="goal-each__initiator-country">
+      Country:
+      {{= initiator.country }}
+      <!-- Country:  goal.initiator.country.upcase if goal.initiator.present?  -->
+    </div>
+    <div class="goal-each__goal-description">
+      {{= description }}
+      <!--  goal.description if goal.description.present? -->
+    </div>
+    <div class="goal-each__created-date">
+        <p class="goal-each__timestamp">Created: ({{= created_date_ago }} ago)</p>
+    </div>
+
+    <!--  Conditional: only if user if logged in -->
+    <% if @current_user.present? %>
+    <div class="goal-buddy-up__container">
+
+      <a goal_id="{{= id }}" initiator="{{= initiator.name }}" goal="{{= title }}" href="/goals/{{= id}}" class="btn btn__buddy-up--before">Buddy Up</a>
+      <!-- link_to "BuddyUP", "/", {:goal_id => goal.id, :initiator => goal.initiator.name, :goal => goal.title.titleize, :class => 'btn btn__buddy-up--before' }  -->
+    </div>
+    <!--  end conditional -->
+
+  </div>
 
   <% end %>
 </script>
@@ -71,7 +108,10 @@ $.ajax({
   <div class="modal">
     <h2 class="modal__title">Confirm</h2>
     <div class="modal__text">
-      <p>Are you sure you want to <i class="modal-goal"></i> with <i class="modal-initiator"></i>?</p>
+      <p>Are you sure you want to
+        <i class="modal-goal"></i>
+        with
+        <i class="modal-initiator"></i>?</p>
     </div>
     <div class="modal__buttons">
       <%= link_to "BuddyUP", "", {:class => 'btn btn__buddy-up--confirm', :method => 'POST' } %>
@@ -89,19 +129,20 @@ $.ajax({
   <%= render partial: 'categories_list', locals: { categories: @categories} %>
 </div>
 
-<div id="goals-filter">
-
-</div>
+<div id="goals-filter"></div>
 <!-- End Categories -->
-  <div class="btn-container">
-    <!--  Conditional: only if user if logged in -->
-    <% if @current_user.present? %>
-        <%= link_to 'Create goal', new_goal_path, :class => 'btn' %>
-        <!--  end conditional -->
-    <% else %>
-        <p>Looks like you're not logged in!</p>
-        <p>Why not <%= link_to "Sign up", signup_path, :class => 'goals-index__link' %> or <%= link_to "Login", login_path, :class => 'goals-index__link'%>?</p>
-    <% end %>
-  </div>
+<div class="btn-container">
+  <!--  Conditional: only if user if logged in -->
+  <% if @current_user.present? %>
+  <%= link_to 'Create goal', new_goal_path, :class => 'btn' %>
+  <!--  end conditional -->
+<% else %>
+  <p>Looks like you're not logged in!</p>
+  <p>Why not
+    <%= link_to "Sign up", signup_path, :class => 'goals-index__link' %>
+    or
+    <%= link_to "Login", login_path, :class => 'goals-index__link'%>?</p>
+  <% end %>
+</div>
 
 <div id="all_goals"></div>
