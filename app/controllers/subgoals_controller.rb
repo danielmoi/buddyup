@@ -27,7 +27,6 @@ class SubgoalsController < ApplicationController
   end
 
   def new
-    raise
     @subgoal = Subgoal.new
 
     respond_to do |format|

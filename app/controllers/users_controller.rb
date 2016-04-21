@@ -34,7 +34,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = @current_user #User.find(params[:id])
-    #raise
     # @user = User.find params[:id]
   end
 
