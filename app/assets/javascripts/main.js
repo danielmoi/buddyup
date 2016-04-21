@@ -6,6 +6,10 @@ $(document).ready(function() {
   app.messages = new app.Messages();
   app.messages.fetch();
 
+  window.setInterval(function() {
+    app.messages.fetch();
+  }, 4000);
+
   app.router = new app.AppRouter();
   Backbone.history.start();
 
