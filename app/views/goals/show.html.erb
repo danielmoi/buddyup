@@ -32,9 +32,6 @@
 
   <div class="goal-show__goal-status">
     Status: <%= goal_status(@goal) %>
-    <% if !@goal.achieved %>
-      <button class="goal-achieved__btn">Goal Achieved</button>
-    <% end %>
   </div>
 
   <div class="goal-each__created-date">
@@ -47,6 +44,12 @@
       ago)
     </p>
   </div>
+
+  <% if !@goal.achieved %>
+    <div class="btn-container">
+      <button class="btn btn__goal-achieved">Goal Achieved</button>
+    </div>
+  <% end %>
 
 </div>
 
