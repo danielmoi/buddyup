@@ -91,7 +91,7 @@
   <div class="goal-each__messages-title">
     <h2>Messages</h2>
   </div>
-
+  <div id="magic-form"></div>
   <div id="magic-messages"></div>
 </script>
 
@@ -99,6 +99,23 @@
   <div class="magic-message__subject"></div>
 </script>
 
+<script id="messageFormViewTemplate" type="text/template">
+
+  <fieldset>
+    <label class="label">Subject:</label>
+    <input type="text" class="input">
+  </fieldset>
+
+  <fieldset>
+    <label class="label">Content:</label>
+    <input type="text" class="input">
+  </fieldset>
+
+  <div class="btn-container">
+    <button class="btn">Create message</button>
+  </div>
+
+</script>
 
 
 <div class="subgoals__container">
