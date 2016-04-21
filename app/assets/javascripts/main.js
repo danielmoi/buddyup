@@ -58,7 +58,7 @@ $(document).ready(function() {
 
   // Hide deleted subgoals
   $('.subgoal-delete__container').on('ajax:success', function(something, response) {
-    $(this).parent().hide();
+    $(this).parent().parent().hide();
   });
 
   // When "edit" button for subgoal is clicked
