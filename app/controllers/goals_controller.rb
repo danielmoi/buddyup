@@ -11,6 +11,8 @@ class GoalsController < ApplicationController
   end
 
   def index
+    @categories = Category.all
+
     if @current_user.present?
       @goals = Goal.where(:acceptor_id => nil) - Goal.where(:initiator_id => @current_user.id) - Goal.where(:initiator_id => nil)
     else
@@ -58,6 +60,13 @@ class GoalsController < ApplicationController
     goal.destroy
     redirect_to user_path(@current_user)
 
+  end
+
+  def achieved
+    @goal = Goal.find params[:id]
+    @goal.achieved = true
+    @goal.save
+    redirect_to user_path(@current_user)
   end
 
   def buddyup
