@@ -1,9 +1,19 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class CategoriesController < ApplicationController
   before_action :authorise, :only => [:new]
 
   def index
     @categories = Category.all
-    @category = Category.find params[:id]
+    redirect_to goals_path
   end
 
   def new

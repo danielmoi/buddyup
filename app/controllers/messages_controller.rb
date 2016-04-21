@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id           :integer          not null, primary key
+#  initiator_id :integer
+#  acceptor_id  :integer
+#  subject      :text
+#  content      :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#  goal_id      :integer
+#
+
 class MessagesController < ApplicationController
 
   def new
@@ -8,7 +22,17 @@ class MessagesController < ApplicationController
   def index
     @goal = Goal.find params[:goal_id]
     @messages = @goal.messages
+
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @messages.to_json
+      }
+    end
+
   end
+
+
 
   def create
     @goal = Goal.find params[:goal_id]

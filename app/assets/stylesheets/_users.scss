@@ -8,8 +8,10 @@
   border-radius: 50%;
   width: 60%;
   height: auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
 }
 
 .user-each__user-location {
@@ -44,12 +46,16 @@
 
 .user-each__goals-completed-link {
   line-height: 130%;
-}
 
+  :hover {
+  color: $secondary;
+  }
+}
 
 .quote-each__quote {
   text-align: center;
   margin-top: 5em;
   font-size: 23px;
   font-style: italic;
+  color: $primary;
 }

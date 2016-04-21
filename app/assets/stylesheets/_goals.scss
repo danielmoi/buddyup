@@ -30,12 +30,35 @@
 .goal-each__messages-title {
 }
 
+
+// SUBGOALS STUFF
+
 .subgoals__container {
-  display: none;
+  margin: 20px 0;
+  border-top: 3px solid $secondary;
+  border-bottom: 3px solid $secondary;
+  padding: 2em 0;
+}
+.subgoals__title {
+  text-align: center;
+}
+
+.subgoals__toggle,
+.messages__toggle {
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
-  padding: 1em 0;
+  height: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1em;
+  cursor: pointer;
+  .fa {
+    vertical-align: top;
+    color: $primary;
+    line-height: 30px;
+  }
 }
+
 .goal-edit__container {
   text-align: center;
   color: $primary;
@@ -57,7 +80,10 @@
 }
 .subgoal-title__container {
   display: inline-block;
-  width: 70%;
+  width: 50%;
+  @media screen and (min-width: 600px) {
+    width: 70%;
+  }
 }
 .subgoal-title__text {
   display: inline-block;
@@ -82,4 +108,8 @@
 }
 .subgoal-delete__container {
   display: inline-block;
+}
+
+#errorMessage {
+  color: $primary;
 }
