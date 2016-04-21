@@ -10,8 +10,11 @@
 
 .lol-image__container {
   display: inline-block;
-  width: 40%;
+  max-width: 100%;
   margin: 1em;
+  @media screen and (min-width: 600px) {
+    width: 40%;
+  }
 }
 .lol-image {
 }
