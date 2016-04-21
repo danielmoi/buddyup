@@ -4,7 +4,7 @@
     <%= link_to c.title, c %>
     </div>
     <% if @current_user.admin? && c.goals.length == 0 %>
-      <%= link_to 'Delete', category_path(c), :method => :delete , :class => 'btn' %>
+      <%= link_to 'Delete', category_path(c), :method => :delete , :class => 'link' %>
     <% end %>
   </p>
 <% end %>

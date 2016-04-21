@@ -36,7 +36,7 @@
     <h3>Achieved</h3>
     <% @goals.each do |g| %>
       <% if g.achieved %>
-        <h3 class="user-each__goals-complet-link"><%= link_to g.title, g %></h3>
+        <p class="user-each__goals-completed-link"><%= link_to g.title, g %></p>
       <% end %>
     <% end %>
   </div>

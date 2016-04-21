@@ -52,9 +52,12 @@ class GoalsController < ApplicationController
 
   def destroy
     goal = Goal.find params[:id]
+
     @user = User.all
+
     goal.destroy
-    redirect_to goals_path
+    redirect_to user_path(@current_user)
+
   end
 
   def buddyup
