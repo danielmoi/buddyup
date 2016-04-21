@@ -31,6 +31,26 @@ $(document).ready(function() {
     $('.fa-caret-down').toggleClass('fa-caret-up');
   });
 
+  // $('.goal-each__more-info').on('click', function(e) {
+  //   console.log($(this).parent().parent());
+  //   e.preventDefault();
+  //   $(this).parent().parent().find('.goal-each__initiator-country').toggle();
+  //   $(this).parent().parent().find('.goal-each__goal-description').toggle();
+  // });
+  //
+  //
+  //
+  // $('.btn__buddy-up--before').on('click', function(e) {
+  //   e.preventDefault();
+  //   console.log('clicked');
+  //   $('.modal__container').show();
+  //   $('.modal-goal').text($(this).attr('goal'));
+  //   $('.modal-initiator').text($(this).attr('initiator'));
+  //   $('.btn__buddy-up--confirm').attr({
+  //     href: "/goals/" + $(this).attr('goal_id') + "/buddyup"
+  //   });
+  // });
+
   $('.goal-each__more-info').on('click', function(e) {
     console.log($(this).parent().parent());
     e.preventDefault();
@@ -49,16 +69,18 @@ $(document).ready(function() {
     });
   });
 
+
   // Add newly created subgoals
-  $('#new_subgoal').on('ajax:success', function (something, response) {
-    // #subgoals-list is the Rails-generated name
+  $('#new_subgoal').on('ajax:success', function(something, response) {
+
+
     $('#subgoals-list').prepend(response);
     $('.subgoal-input').val('');
   });
 
   // Hide deleted subgoals
   $('.subgoal-delete__container').on('ajax:success', function(something, response) {
-    $(this).parent().hide();
+    $(this).parent().parent().hide();
   });
 
   // When "edit" button for subgoal is clicked
@@ -109,7 +131,7 @@ $(document).ready(function() {
 
   $('#amount').on('click', function(e){
     console.log("hello from function");
-    if (parseInt($('#goal_amount').val()) < 50){
+    if (parseInt($('#goal_amount').val()) < 50) {
       console.log("hello from if");
       $(event.preventDefault());
       $('.modal__container').show();
@@ -117,9 +139,10 @@ $(document).ready(function() {
     }
   });
 
+
   $('.btn__goal-achieved').on('click', function(e) {
     e.preventDefault();
-    goal_id = window.location.href.split("/").pop()
+    goal_id = window.location.href.split("/").pop();
     $.ajax({
       url: goal_id+"/achieved",
       type: "POST",
@@ -130,5 +153,4 @@ $(document).ready(function() {
       }
     });
   });
-
 });

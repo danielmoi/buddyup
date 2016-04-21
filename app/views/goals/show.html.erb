@@ -34,6 +34,7 @@
     Status: <%= goal_status(@goal) %>
   </div>
 
+
   <div class="goal-each__created-date">
     <% x = distance_of_time_in_words_to_now(@goal.created_at) %>
     <% y = time_tag(@goal.created_at) %>

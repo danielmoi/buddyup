@@ -14,6 +14,10 @@
 #
 
 class GoalsController < ApplicationController
+
+require "action_view"
+include ActionView::Helpers::DateHelper
+
   def edit
     @goal = Goal.find params[:id]
     @categories = Category.all
@@ -33,7 +37,21 @@ class GoalsController < ApplicationController
     else
       @goals = Goal.all
     end
+    @goals.map! do |goal|
+      #goal.this_is_the_date = goal.created_at
+      goal.created_date_ago = distance_of_time_in_words_to_now(goal.created_at)
+      #goal.killme = time_tag(goal.created_date)
+      goal
+    end
+
+    respond_to do |format|
+      format.html { }
+      format.json { render json: @goals.to_json(:include => [:categories, :initiator]) }
+    end
+    puts(@goals.inspect)
   end
+
+
 
   def new
     @goal = Goal.new

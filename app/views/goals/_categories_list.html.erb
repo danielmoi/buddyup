@@ -1,7 +1,7 @@
 <% @categories.each do |c| %>
   <p>
-    <div id='cat' class="btn btn__buddy-up-before">
-    <%= link_to c.title, c %>
+    <div class='category_btn' class="btn btn__buddy-up--before">
+    <%= link_to c.title, c, "cat_id" => c.id %>
     </div>
     <% if @current_user.admin? && c.goals.length == 0 %>
       <%= link_to 'Delete', category_path(c), :method => :delete , :class => 'link' %>

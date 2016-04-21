@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
   <body>
@@ -16,7 +17,7 @@
     <header class="header">
       <div class="header-logo__container">
         <a href="<%= root_path %>">
-          <img class="header-logo__image" src="/assets/logo-orange-1.png" alt="BuddyUP">
+          <%= image_tag("logo-orange-1.png", :class => 'header-logo__image', :alt => 'BuddyUP') %>
         </a>
       </div>
     </header>
