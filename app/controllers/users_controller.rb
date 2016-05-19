@@ -24,8 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user #User.find params[:id]
-    @goals = @user.goals_initiated
-    @goals << @user.goals_accepted
+    @goals = @user.goals_initiated << @user.goals_accepted
   end
 
   def new
